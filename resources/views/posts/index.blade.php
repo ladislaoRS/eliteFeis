@@ -9,6 +9,7 @@
                     @foreach($posts as $post)
                         <div class="card mb-4">
                             <div class="card-body py-2">
+                                <h6 class="text-uppercase mb-0"><a href="/posts/{{ $post->tag->slug }}" class="text-muted">{{$post->tag->name}}</a></h6>
                                 <h4 class="card-title"><a href="{{ $post->path() }}">{{ $post->title }}</a></h4>
                                 <h6 class="card-subtitle mb-3 text-muted"> 
                                     {{ $post->created_at->toFormattedDateString() }} by
@@ -37,18 +38,29 @@
                 </div>
 
                 <div class="p-3">
-                    <h4 class="font-italic">Tags</h4>
-                    <ol class="list-unstyled mb-0">
-                        @foreach($tags as $tag)
-                            <li class="text-capitalize"><a href="/posts/{{ $tag->slug }}">{{ $tag->name }}</a></li>
-                        @endforeach
-                    </ol>
+                    <h4 class="font-weight-bold">Popular on FeisElite</h4>
+                    <hr>
+                    <ul class="list-unstyled" id="popular">
+                         @foreach($popularity as $popular)
+                        <li class="media pb-3">
+                            <!--<img class="mr-3 rounded-circle" src="https://images.unsplash.com/photo-1544501616-6c71ff5438ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80https://images.unsplash.com/photo-1514626585111-9aa86183ac98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" width="32" height="32" alt="Profile">-->
+                            <h2 class="mr-3 align-self-center text-muted"></h2>
+                            <div class="media-body">
+                              <h5 class="mt-0 mb-1"><a href="{{ $popular->path() }}">{{ substr($popular->title, 0, 60) }}...</a></h5>
+                             <span style="font-size: .95rem">{{ $popular->creator->name }} <br> {{ $popular->created_at->toFormattedDateString() }}</span>
+                            </div>
+                         </li>
+                     </ul>
+                     @endforeach
                 </div>
                 <div class="p-3">
-                    <h4 class="font-italic">Elsewhere</h4>
-                    <ol class="list-unstyled">
-                        <li><a href="#">GitHub</a></li>
-                    </ol>
+                    <!--<h4 class="font-italic">Media</h4>-->
+                    <hr>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#">Profile</a></li>
+                        <li class="list-inline-item"><a href="#">Help</a></li>
+                        <li class="list-inline-item"><a href="#">About</a></li>
+                    </ul>
                 </div>
             </aside><!-- /.blog-sidebar -->
         </div>

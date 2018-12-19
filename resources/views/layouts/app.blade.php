@@ -24,7 +24,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand font-weight-bold" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -33,12 +33,12 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto text-uppercase" style="font-size: 0.9rem">
                         <li class="nav-item">
-                            <a class="nav-link btn btn-outline-success text-success" href="/posts/create">New Post</a>
+                            <a class="nav-link btn-outline-success text-success border border-success rounded" href="/posts/create">New Post</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/posts">All Posts</a>
+                            <a class="nav-link" href="/posts">All</a>
                         </li>
                         @if(Auth::check())
                         <li class="nav-item">
@@ -50,7 +50,7 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Tags
+                              Category
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @foreach($tags as $tag)
@@ -69,7 +69,7 @@
                             </li>
                             <li class="nav-item">
                                 @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link  btn-outline-success text-success border border-success rounded" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 @endif
                             </li>
                         @else

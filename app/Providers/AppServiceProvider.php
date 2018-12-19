@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Tag;
+use App\Post;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -17,6 +18,9 @@ class AppServiceProvider extends ServiceProvider
         \Schema::defaultStringLength(191);
         \View::composer('*', function ($view) {
             $view->with('tags', Tag::all());
+        });
+         \View::composer('*', function ($view) {
+            $view->with('popularity', Post::take(4)->orderBy('replies_count', 'desc')->get());
         });
     }
 
