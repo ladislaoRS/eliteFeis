@@ -9,5 +9,13 @@
                 <span style="font-size: .9rem">{{ $reply->body }}</span>
             </div>
         </div>
+        
+        <form method="POST" action="/replies/{{ $reply->id }}/favorites">
+            @csrf
+            <button type="submit" class="btn btn-link pt-4 pl-0 pb-0" {{ $reply->isFavorited() ? 'disabled' : '' }}>
+                <span class=""><i class="far fa-thumbs-up fa-lg"></i></span>
+                <span class="btn-like">{{ $reply->favorites_count }}</span>
+            </button>
+        </form>
     </div>
 </div>

@@ -17,9 +17,16 @@ class AppServiceProvider extends ServiceProvider
     {
         \Schema::defaultStringLength(191);
         \View::composer('*', function ($view) {
-            $view->with('tags', Tag::all());
+            $tags = \Cache::rememberForever('tags', function(){
+                return Tag::all();
+            });
+            $view->with('tags', $tags);
         });
-         \View::composer('*', function ($view) {
+         \View::composer('posts.index', function ($view) {
+            //  $popularity = \Cache::rememberForever('popularity', function(){
+            //     return Post::with('creator')->take(4)->orderBy('replies_count', 'desc')->get();
+            // });
+            // $view->with('popularity', $popularity);
             $view->with('popularity', Post::take(4)->orderBy('replies_count', 'desc')->get());
         });
     }
@@ -31,6 +38,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if($this->app->isLocal())
+        {
+            $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
+        }
     }
 }

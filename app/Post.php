@@ -15,6 +15,8 @@ class Post extends Model
      */
     protected $guarded = [];
     
+    protected $with = ['creator', 'tag'];
+    
     /**
      * Boot the model.
      */

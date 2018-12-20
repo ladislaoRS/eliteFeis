@@ -24,7 +24,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand font-weight-bold" href="{{ url('/') }}">
+                <h1><a class="navbar-brand" href="{{ url('/') }}"></h1>
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -35,7 +35,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto text-uppercase" style="font-size: 0.9rem">
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-success text-success border border-success rounded" href="/posts/create">New Post</a>
+                            <a class="nav-link btn-outline-success text-success text-center border border-success rounded" href="/posts/create">New Post</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/posts">All</a>
@@ -69,7 +69,7 @@
                             </li>
                             <li class="nav-item">
                                 @if (Route::has('register'))
-                                    <a class="nav-link  btn-outline-success text-success border border-success rounded" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link  btn-outline-success text-success text-center border border-success rounded" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 @endif
                             </li>
                         @else

@@ -23,4 +23,6 @@ Route::get('posts/{tag}/{post}', 'PostsController@show');
 Route::post('posts', 'PostsController@store');
 Route::get('posts/{tag}', 'PostsController@index');
 Route::post('/posts/{tag}/{post}/replies', 'RepliesController@store');
+Route::post('/replies/{reply}/favorites', 'FavoritesController@store');
+
 

@@ -6,26 +6,31 @@
         <div class="col-md-8">
             <div class="card border-0">
                 <div class="card-body pt-0">
-                    @foreach($posts as $post)
-                        <div class="card mb-4">
-                            <div class="card-body py-2">
-                                <h6 class="text-uppercase mb-0"><a href="/posts/{{ $post->tag->slug }}" class="text-muted">{{$post->tag->name}}</a></h6>
-                                <h4 class="card-title"><a href="{{ $post->path() }}">{{ $post->title }}</a></h4>
-                                <h6 class="card-subtitle mb-3 text-muted"> 
-                                    {{ $post->created_at->toFormattedDateString() }} by
-                                    <a href="#">{{ $post->creator->name }}</a>
-                                </h6>
-                                <p class="card-text lead">{{ substr($post->body, 0, 200) }} <a href="{{ $post->path() }}">...</a></p>
-                                <a href="{{ $post->path() }}" class="card-link">
-                                    <span class="">{{ $post->replies_count }}</span>
-                                    <span class=""><i class="fas fa-reply"></i></span>
-                                </a>
-                                <a href="#" class="card-link">
-                                    <span class=""><i class="fas fa-eye"></i></span>
-                                </a>
+                    @if(! $posts->isEmpty())
+                        @foreach($posts as $post)
+                            <div class="card border-0 mb-4">
+                                <div class="card-body py-2">
+                                    <h6 class="text-uppercase mb-0"><a href="/posts/{{ $post->tag->slug }}" class="text-muted">{{$post->tag->name}}</a></h6>
+                                    <h4 class="card-title"><a href="{{ $post->path() }}">{{ $post->title }}</a></h4>
+                                    <h6 class="card-subtitle mb-3 text-muted"> 
+                                        {{ $post->created_at->toFormattedDateString() }} by
+                                        <a href="#">{{ $post->creator->name }}</a>
+                                    </h6>
+                                    <p class="card-text lead">{{ substr($post->body, 0, 200) }} <a href="{{ $post->path() }}">...</a></p>
+                                    <a href="{{ $post->path() }}" class="card-link">
+                                        <span class="">{{ $post->replies_count }}</span>
+                                        <span class=""><i class="far fa-comment"></i></span>
+                                    </a>
+                                    <a href="#" class="card-link">
+                                        <span class=""><i class="far fa-eye"></i></span>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                            <hr>
+                        @endforeach
+                    @else
+                        <h5 class="text-center mt-4 pt-4">You haven’t published any public posts yet, <a href="/posts/create">Write</a> your first post!</h5>
+                    @endif
                     {{ $posts->links() }}
                 </div>
             </div>
@@ -33,12 +38,12 @@
         <div class="col-md-4">
             <aside class="blog-sidebar">
                 <div class="p-3 mb-3 bg-light rounded">
-                    <h4 class="font-italic">About</h4>
+                    <h4 class="font-italic">Bookmarked</h4>
                     <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
                 </div>
 
                 <div class="p-3">
-                    <h4 class="font-weight-bold">Popular on FeisElite</h4>
+                    <h4 class="">Popular on FeisElite</h4>
                     <hr>
                     <ul class="list-unstyled" id="popular">
                          @foreach($popularity as $popular)

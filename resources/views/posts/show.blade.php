@@ -7,14 +7,16 @@
             <div class="card mb-3 border-0" id="post">
                 <div class="card-body py-0">
                     <h1 class="card-title">{{ $post->title }}</h1>
-                    <h6 class="card-subtitle mb-3 text-muted"> 
+                    <h6 class="card-subtitle mb-4 text-muted"> 
                         {{ $post->created_at->toFormattedDateString() }} by
                         <a href="#">{{ $post->creator->name }}</a>
                     </h6>
-                    <p class="card-tex text-justify" style="line-height: 1.8rem; font-size: 1.1rem">{!! nl2br($post->body) !!}</p>
+                    <p class="card-tex" style="line-height: 1.8rem; font-size: 1.1rem">{!! nl2br($post->body) !!}</p>
                     <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
-                    <div class="pb-5"></div>
-                    <div class="bg-light p-4 my-2 rounded">
+                    <div class="py-2">
+                        <hr>
+                    </div>
+                    <div class="bg-light p-3 my-2 rounded">
                         
                         <!--Replies section-->
                         @if($replies->isEmpty())

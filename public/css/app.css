@@ -27,3 +27,7 @@
 .media a {
  text-decoration: none;
 }
+
+.btn-link.focus, .btn-link:focus, .btn-link:hover {
+  text-decoration: none;
+}
