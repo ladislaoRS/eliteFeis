@@ -22,10 +22,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
             <div class="container">
-                <h1><a class="navbar-brand" href="{{ url('/') }}"></h1>
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <span class="h3">{{ config('app.name', 'Laravel') }}</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto text-uppercase" style="font-size: 0.9rem">
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-success text-success text-center border border-success rounded" href="/posts/create">New Post</a>
+                            <a class="nav-link text-center border rounded" href="/posts/create">New Post</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/posts">All</a>
@@ -50,7 +50,7 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Category
+                              Categories
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @foreach($tags as $tag)

@@ -5,13 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card mb-3 border-0" id="post">
-                <div class="card-body py-0">
+                <div class="card-body py-0 px-1">
                     <h1 class="card-title">{{ $post->title }}</h1>
                     <h6 class="card-subtitle mb-4 text-muted"> 
                         {{ $post->created_at->toFormattedDateString() }} by
                         <a href="#">{{ $post->creator->name }}</a>
                     </h6>
-                    <p class="card-tex" style="line-height: 1.8rem; font-size: 1.1rem">{!! nl2br($post->body) !!}</p>
+                    <p class="card-tex" style="line-height: 1.9rem; font-size: 1.25rem">{!! nl2br($post->body) !!}</p>
                     <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
                     <div class="py-2">
                         <hr>

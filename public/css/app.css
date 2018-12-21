@@ -31,3 +31,15 @@
 .btn-link.focus, .btn-link:focus, .btn-link:hover {
   text-decoration: none;
 }
+
+/*.post-index {*/
+/*    font-weight: 600;*/
+/*}*/
+.post-index  a {
+    color: #212529;
+}
+
+.post-index a:hover {
+    color: #6c757d!important;
+    text-decoration: none;
+}
