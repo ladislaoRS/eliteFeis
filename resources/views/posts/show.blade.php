@@ -9,10 +9,21 @@
                     <h1 class="card-title">{{ $post->title }}</h1>
                     <h6 class="card-subtitle mb-4 text-muted"> 
                         {{ $post->created_at->toFormattedDateString() }} by
-                        <a href="#">{{ $post->creator->name }}</a>
+                        <a href="/profiles/{{ $post->creator->name }}">{{ $post->creator->name }}</a>
                     </h6>
                     <p class="card-tex" style="line-height: 1.9rem; font-size: 1.25rem">{!! nl2br($post->body) !!}</p>
-                    <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+                    @can('update', $post)
+                    <form action="{{ $post->path() }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?');">
+                        @csrf
+                        @method('DELETE')
+                        <button 
+                            type="submit" 
+                            class="btn btn-outline-danger btn-sm prevent" 
+                        > Delete
+                        </button>
+                    </form>
+                    @endcan
+                    
                     <div class="py-2">
                         <hr>
                     </div>
@@ -53,7 +64,7 @@
                 <h4 class="font-italic">About</h4>
                 <p class="mb-0">
                     This post was published {{ $post->created_at->diffForHumans() }} by 
-                    <a href="#">{{ $post->creator->name }}</a>, and currently has {{ $post->replies_count }} {{ str_plural('comment', $post->replies_count) }}.
+                    <a href="/profiles/{{ $post->creator->name }}">{{ $post->creator->name }}</a>, and currently has {{ $post->replies_count }} {{ str_plural('comment', $post->replies_count) }}.
                 </p>
                 </div>
             </aside><!-- /.blog-sidebar -->

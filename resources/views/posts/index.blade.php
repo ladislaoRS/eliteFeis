@@ -6,8 +6,7 @@
         <div class="col-md-8">
             <div class="card border-0">
                 <div class="card-body pt-0 px-1">
-                    @if(! $posts->isEmpty())
-                        @foreach($posts as $post)
+                        @forelse($posts as $post)
                             <div class="card border-0 mb-4">
                                 <div class="card-body py-2 px-0">
                                     <h6 class="text-uppercase mb-0"><a href="/posts/{{ $post->tag->slug }}" class="text-muted">{{$post->tag->name}}</a></h6>
@@ -27,11 +26,10 @@
                                 </div>
                             </div>
                             <hr>
-                        @endforeach
-                    @else
-                        <h5 class="text-center mt-4 pt-4">You haven’t published any posts yet, <a href="/posts/create">write</a> your first post!</h5>
-                        <hr>
-                    @endif
+                        @empty
+                            <h5 class="text-center mt-4 pt-4">No posts have been published yet, <a href="/posts/create">write</a> your first post!</h5>
+                            <hr>
+                        @endforelse
                     {{ $posts->links() }}
                 </div>
             </div>

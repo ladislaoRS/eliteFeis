@@ -107,9 +107,11 @@ class PostsController extends Controller
      * @param  \App\Post  $Post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($tag, Post $post)
     {
-        //
+        $post->delete();
+        
+        return redirect('/posts');
     }
     
     /**

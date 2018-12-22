@@ -3,7 +3,7 @@
         <div class="media text-muted">
             <img class="mr-2 rounded-circle" src="https://images.unsplash.com/photo-1544501616-6c71ff5438ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80https://images.unsplash.com/photo-1514626585111-9aa86183ac98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="Profile" width="32" height="32">
             <div class="media-body">
-                <h6 class="mt-0"><a href="#"><span>@</span>{{ $reply->owner->name }}</a>
+                <h6 class="mt-0"><a href="/profiles/{{ $reply->owner->name }}"><span>@</span>{{ $reply->owner->name }}</a>
                 <span class="d-block text-gray-dark pt-1">{{ $reply->created_at->diffForHumans() }}</span>
                 </h6>
                 <span style="font-size: .9rem">{{ $reply->body }}</span>
