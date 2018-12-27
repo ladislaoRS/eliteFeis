@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+     use RecordsActivity;
      /**
      * The attributes that aren't mass assignable.
      *
