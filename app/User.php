@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class)->latest();
     }
+    
+    public function activity()
+    {
+        return $this->hasMany(Activity::class);
+    }
 }
