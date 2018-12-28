@@ -30,7 +30,7 @@ class Post extends Model
         });
         
         static::deleting(function($post){
-            $post->replies()->delete();
+            $post->replies->each->delete();
         });
     }
     

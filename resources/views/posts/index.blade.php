@@ -41,7 +41,7 @@
                     <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
                 </div>
 
-                <div class="p-3">
+                <div class="p-4">
                     <h4 class="">Popular on FeisElite</h4>
                     <hr>
                     <ul class="list-unstyled" id="popular">
@@ -61,10 +61,10 @@
                      </ul>
                      @endforeach
                 </div>
-                <div class="p-3">
+                <div class="">
                     <!--<h4 class="font-italic">Media</h4>-->
                     <hr>
-                    <ul class="list-inline">
+                    <ul class="list-inline text-center">
                         <li class="list-inline-item"><a href="#">About</a></li>
                         <li class="list-inline-item"><a href="#">Contact</a></li>
                         <li class="list-inline-item"><a href="#">Help</a></li>
