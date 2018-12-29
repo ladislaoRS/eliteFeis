@@ -1,0 +1,39 @@
+body {
+     font-family: Source Sans Pro, sans-serif;
+     font-size: 1rem;
+     counter-reset: my-sec-counter;
+ }
+ 
+ div#post h1 {
+  font-family: 'PT Serif', serif;
+ }
+
+.navbar>a.text-success:focus, a.text-success:hover {
+    color: #fff!important;
+}
+
+.media > h2::before {
+  /* Increment "my-sec-counter" by 1 */
+  counter-increment: my-sec-counter;
+  content: "0" counter(my-sec-counter);
+}
+
+.media a {
+ text-decoration: none;
+}
+
+.btn-link.focus, .btn-link:focus, .btn-link:hover {
+  text-decoration: none;
+}
+
+/*.post-index {*/
+/*    font-weight: 600;*/
+/*}*/
+.post-index  a {
+    color: #212529;
+}
+
+.post-index a:hover {
+    color: #6c757d!important;
+    text-decoration: none;
+}

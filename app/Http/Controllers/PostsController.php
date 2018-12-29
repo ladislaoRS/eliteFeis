@@ -61,7 +61,7 @@ class PostsController extends Controller
             'title' => $request->input('title'),
             'body'  => $request->input('body')
         ]);
-        return redirect($post->path());
+        return redirect($post->path())->with('flash', 'Your post have been published');
     }
 
     /**
