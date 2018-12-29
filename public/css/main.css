@@ -37,3 +37,7 @@ body {
     color: #6c757d!important;
     text-decoration: none;
 }
+
+.reply-icons {
+    display: inline-block;
+}
