@@ -23,7 +23,7 @@ class Activity extends Model
         return $this->morphTo();
     }
     
-    public static function feed($user, $take = 5)
+    public static function feed($user, $take = 50)
     {
         return static::where('user_id', $user->id)
         ->latest()

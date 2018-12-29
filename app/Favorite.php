@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Favorite extends Model
 {
+    use RecordsActivity;
+    
     /**
      * Don't auto-apply mass assignment protection.
      *

@@ -24,4 +24,9 @@ class Reply extends Model
         return $this->belongsTo(Post::class);
     }
     
+    public function path()
+    {
+        return $this->post->path() . "#reply-{$this->id}";
+    }
+    
 }

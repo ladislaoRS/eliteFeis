@@ -16,7 +16,9 @@
                     @forelse($activities as $date => $register)
                         <h5 class="mb-3 font-weight-bold text-muted">{{ $date }}</h5>
                         @foreach($register as $activity)
-                            @include("profiles.activities.{$activity->type}")
+                            @if(view()->exists("profiles.activities.{$activity->type}"))
+                                @include("profiles.activities.{$activity->type}")
+                            @endif
                         @endforeach
                        
                         <br class="mb-5">
