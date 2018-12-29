@@ -41,3 +41,7 @@ body {
 .reply-icons {
     display: inline-block;
 }
+
+[v-cloak] {
+    display: none;
+}
