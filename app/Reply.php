@@ -14,6 +14,13 @@ class Reply extends Model
     
     protected $guarded = [];
     
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['favoritesCount', 'isFavorited'];
+    
     public function owner()
     {
         return $this->belongsTo(User::class, 'user_id');

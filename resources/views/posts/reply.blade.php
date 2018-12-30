@@ -19,15 +19,21 @@
                 </div>
             </div>
             
-            <form class="reply-icons" method="POST" action="/replies/{{ $reply->id }}/favorites">
-                @csrf
-                <button type="submit" title="Like" class="btn btn-link pt-4 pl-0 pb-0" {{ $reply->isFavorited() ? 'disabled' : '' }}>
-                    <span class=""><i class="far fa-thumbs-up fa-lg"></i></span>
-                    <span class="btn-like">{{ $reply->favorites_count }}</span>
-                </button>
-            </form>
+            <!--Favorite-->
+            @if(Auth::check())
+                <favorite :reply="{{ $reply }}"></favorite>
+            @endif
+            
+            <!--<form class="reply-icons" method="POST" action="/replies/{{ $reply->id }}/favorites">-->
+            <!--    @csrf-->
+            <!--    <button type="submit" title="Like" class="btn btn-link pt-4 pl-0 pb-0" {{ $reply->isFavorited() ? 'disabled' : '' }}>-->
+            <!--        <span class=""><i class="far fa-thumbs-up fa-lg"></i></span>-->
+            <!--        <span class="btn-like">{{ $reply->favorites_count }}</span>-->
+            <!--    </button>-->
+            <!--</form>-->
             @can('update', $reply)
-                <!--Deleting reply-->
+                <!--Deleting reply old traditional post form-->
+                
                 <!--<form class="reply-icons" action="/replies/{{ $reply->id }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this reply?');">-->
                 <!--    @csrf-->
                 <!--    @method('DELETE')-->
@@ -35,9 +41,12 @@
                 <!--        <span class="btn-like text-danger"><i class="far fa-trash-alt fa-lg"></i></span>-->
                 <!--    </button>-->
                 <!--</form>-->
+                
+                <!--Ajaxifying delete button-->
                 <button class="btn btn-link pt-4 pl-0 pb-0" title="Delete" @click="destroy">
                     <span class="text-danger"><i class="far fa-trash-alt fa-lg"></i></span>
                 </button>
+                
                 <!--Editing reply-->
                 <button class="btn btn-link pt-4 pl-0 pb-0 float-md-right" title="Edit" @click="editing = true">
                     <span class=""><i class="far fa-edit fa-lg"></i></span>
