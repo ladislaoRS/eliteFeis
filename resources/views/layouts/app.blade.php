@@ -35,9 +35,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto text-uppercase" style="font-size: 0.9rem">
-                        <li class="nav-item">
-                            <a class="nav-link text-center border rounded" href="/posts/create">New Post</a>
-                        </li>
+                        <!--<li class="nav-item">-->
+                        <!--    <a class="nav-link text-center border rounded" href="/posts/create">New Post</a>-->
+                        <!--</li>-->
                         <li class="nav-item">
                             <a class="nav-link" href="/posts">All</a>
                         </li>
@@ -51,7 +51,7 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Categories
+                              Topics
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @foreach($tags as $tag)

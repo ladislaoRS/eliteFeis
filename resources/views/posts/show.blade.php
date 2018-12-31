@@ -18,7 +18,8 @@
                         @method('DELETE')
                         <button 
                             type="submit" 
-                            class="btn btn-outline-danger btn-sm prevent" 
+                            class="btn btn-outline-danger py-1 prevent"
+                            title="Delete Post"
                         > Delete
                         </button>
                     </form>

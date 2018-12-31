@@ -36,6 +36,10 @@
         </div>
         <div class="col-md-4">
             <aside class="blog-sidebar">
+                <a href="/posts/create" class="btn btn-primary btn-lg btn-block">
+                    New Post
+                </a>
+                <hr>
                 <div class="p-3 mb-3 bg-light rounded">
                     <h4 class="font-italic">Bookmarked</h4>
                     <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
@@ -47,7 +51,6 @@
                     <ul class="list-unstyled" id="popular">
                          @foreach($popularity as $popular)
                         <li class="media pb-3">
-                            <!--<img class="mr-3 rounded-circle" src="https://images.unsplash.com/photo-1544501616-6c71ff5438ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80https://images.unsplash.com/photo-1514626585111-9aa86183ac98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" width="32" height="32" alt="Profile">-->
                             <h2 class="mr-3 align-self-center text-muted"></h2>
                             <div class="media-body">
                                 <h5 class="mt-0 mb-1"><a href="{{ $popular->path() }}">{{ substr($popular->title, 0, 60) }}...</a></h5>
@@ -60,9 +63,6 @@
                          </li>
                      </ul>
                      @endforeach
-                </div>
-                <div class="">
-                    <!--<h4 class="font-italic">Media</h4>-->
                     <hr>
                     <ul class="list-inline text-center">
                         <li class="list-inline-item"><a href="#">About</a></li>
