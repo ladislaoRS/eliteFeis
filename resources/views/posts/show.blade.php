@@ -36,10 +36,12 @@
                         @else
                             <div class="">Responses</div>
                         @endif
+                        
                         @foreach($replies as $reply)
                             @include('posts.reply')
                         @endforeach
                         <div class="">{{ $replies->links() }}</div>
+                        
                         @if (Auth::check())
                             <form method="POST" action="{{ $post->path() }}/replies">
                                 @csrf

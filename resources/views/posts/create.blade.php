@@ -4,8 +4,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                <h2 class="pb-4">New Post</h2>
+
                 <div class="card">
-                    <div class="card-header">Create a New Post</div>
+                    <!--<div class="card-header">Create a New Post</div>-->
 
                     <div class="card-body">
                         <form method="POST" action="/posts">
@@ -33,8 +35,9 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary">Publish</button>
-                            <hr>
+                            
                             @if ($errors->any())
+                             <hr>
                                 <div class="alert alert-danger">
                                     <ul>
                                         @foreach ($errors->all() as $error)

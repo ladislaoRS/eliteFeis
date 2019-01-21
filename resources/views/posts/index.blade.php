@@ -8,9 +8,9 @@
                 <div class="card-body pt-0 px-1">
                         @forelse($posts as $post)
                             <div class="card border-0 mb-4">
-                                <div class="card-body py-2 px-0">
+                                <div class="card-body py-0 px-0">
                                     <h6 class="text-uppercase mb-0"><a href="/posts/{{ $post->tag->slug }}" class="text-muted">{{$post->tag->name}}</a></h6>
-                                    <h4 class="card-title post-index font-weight-bold"><a href="{{ $post->path() }}">{{ $post->title }}</a></h4>
+                                    <h4 class="card-title post-index"><a href="{{ $post->path() }}">{{ $post->title }}</a></h4>
                                     <h6 class="card-subtitle mb-3 text-muted"> 
                                         {{ $post->created_at->toFormattedDateString() }} by
                                         <a href="/profiles/{{ $post->creator->name }}">{{ $post->creator->name }}</a>
@@ -25,11 +25,13 @@
                                     </a>
                                 </div>
                             </div>
-                            <hr>
+                            <!--<hr>-->
+                            {!! ($post === $posts->last() ? "" : "<hr />") !!}
                         @empty
                             <h5 class="text-center mt-4 pt-4">No posts have been published yet, <a href="/posts/create">write</a> your first post!</h5>
                             <hr>
                         @endforelse
+                    <div class="pb-3"></div>
                     {{ $posts->links() }}
                 </div>
             </div>
@@ -37,9 +39,9 @@
         <div class="col-md-4">
             <aside class="blog-sidebar">
                 <a href="/posts/create" class="btn btn-primary btn-lg btn-block">
-                    New Post
+                    Write a New Post
                 </a>
-                <hr>
+                <div class="pb-4"></div>
                 <div class="p-3 mb-3 bg-light rounded">
                     <h4 class="font-italic">Bookmarked</h4>
                     <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>

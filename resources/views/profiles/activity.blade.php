@@ -11,7 +11,7 @@
                     <span class="h6 text-muted text-uppercase">Writer | {{ $profileUser->created_at->toFormattedDateString() }}</span>
                     <br>
                     <a class="small" href="/profiles/{{ $profileUser->name }}">Profile</a>
-                    <hr class="pb-4 mb-4">
+                    <div class="pb-4 mb-4"> </div>
                     
                     @forelse($activities as $date => $register)
                         <h5 class="mb-3 font-weight-bold text-muted">{{ $date }}</h5>
@@ -24,7 +24,7 @@
                         <br class="mb-5">
                     @empty
                         <h5 class="text-center mt-4 pt-4">{{ $profileUser->name }} hasn't registered any activity yet.</h5>
-                        <hr>
+                        <!--<hr>-->
                     @endforelse
                 </div>
             </div>
