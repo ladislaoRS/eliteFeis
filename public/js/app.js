@@ -47879,7 +47879,7 @@ exports = module.exports = __webpack_require__(43)(false);
 
 
 // module
-exports.push([module.i, "\n.alert-flash {\n    position: fixed;\n    right: 25px;\n    bottom: 25px;\n}\n", ""]);
+exports.push([module.i, "\n.alert-flash {\n    position: fixed;\n    right: 1.5rem;\n    bottom: 1rem;\n    padding: 1rem;\n}\n@media (max-width: 576px) {\n.alert-flash {\n        position: absolute;\n        left: 1rem;\n        right: 1rem;\n        bottom: 0.1rem;\n}\n}\n\n", ""]);
 
 // exports
 
@@ -48297,7 +48297,7 @@ var render = function() {
       staticClass: "alert alert-success alert-flash",
       attrs: { role: "alert" }
     },
-    [_c("strong", [_vm._v("Great!")]), _vm._v(" " + _vm._s(_vm.body) + "\n  ")]
+    [_vm._v("\n        " + _vm._s(_vm.body) + "\n  ")]
   )
 }
 var staticRenderFns = []
@@ -48599,6 +48599,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ["active"],
@@ -48617,7 +48618,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.isActive = !this.isActive;
 
             if (this.isActive) {
-                flash("Okay, we'll notify you when this post is updated!");
+                flash("Okay!, we'll notify you when this post is updated!");
             }
         }
     }

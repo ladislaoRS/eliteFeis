@@ -1,5 +1,6 @@
 <template>
-    <button :class="isActive ? 'btn btn-success btn-sm': 'btn btn-outline-success btn-sm'" 
+    <button 
+        :class="isActive ? 'btn btn-success btn-sm': 'btn btn-outline-success btn-sm'" 
         @click="subscribe" 
         v-text="isActive ? 'Subscribed' : 'Subscribe'">
     </button>
@@ -24,7 +25,7 @@
                 this.isActive = !this.isActive;
     
                 if (this.isActive) {
-                    flash("Okay, we'll notify you when this post is updated!");
+                    flash("Okay!, we'll notify you when this post is updated!");
                 }
             }
         }

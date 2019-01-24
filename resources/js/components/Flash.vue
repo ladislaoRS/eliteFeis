@@ -1,6 +1,6 @@
 <template>
     <div class="alert alert-success alert-flash" role="alert" v-show="show">
-        <strong>Great!</strong> {{ body }}
+        {{ body }}
   </button>
 </div>
 </template>
@@ -43,7 +43,17 @@
 <style type="text/css">
     .alert-flash {
         position: fixed;
-        right: 25px;
-        bottom: 25px;
+        right: 1.5rem;
+        bottom: 1rem;
+        padding: 1rem;
     }
+    @media (max-width: 576px) { 
+        .alert-flash {
+            position: absolute;
+            left: 1rem;
+            right: 1rem;
+            bottom: 0.1rem;
+        }
+    }
+
 </style>
