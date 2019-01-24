@@ -98,7 +98,10 @@ class PostsController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $this->authorize('update', $post);
+        $post->update([
+            'body' => $request->input('body')
+        ]);
     }
 
     /**
@@ -110,6 +113,10 @@ class PostsController extends Controller
     public function destroy($tag, Post $post)
     {
         $post->delete();
+        
+        if (request()->wantsJson()) {
+            return response([], 204);
+        }
         
         return redirect('/posts');
     }

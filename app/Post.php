@@ -98,7 +98,7 @@ class Post extends Model
     public function unsubscribe($userId = null)
     {
         $this->subscriptions()
-            ->where('user_id', $userId ?: Auth::user()->id)
+            ->where('user_id', $userId ?:Auth::user()->id)
             ->delete();
     }
     /**

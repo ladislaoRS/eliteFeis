@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<post :attributes="{{ $post }}" inline-template v-cloak>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -17,19 +18,42 @@
                     
                     <div class="mb-4"> </div>
                     
-                    <p class="card-tex" style="line-height: 1.9rem; font-size: 1.25rem">{!! nl2br($post->body) !!}</p>
-                    @can('update', $post)
-                    <form action="{{ $post->path() }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?');">
-                        @csrf
-                        @method('DELETE')
-                        <button 
-                            type="submit" 
-                            class="btn btn-outline-danger py-1 prevent"
-                            title="Delete Post"
-                        > Delete
+                    <div v-if="editing">
+                        <div class="form-group">
+                            <textarea class="form-control mb-2" rows="15" v-model="body" style="line-height: 1.9rem; font-size: 1.25rem"></textarea>
+                            <button @click="update" class="btn btn-outline-primary btn-sm">Update</button>
+                            <button @click="editing = false" class="btn btn-outline-secondary btn-sm" title="Cancel">Cancel</button>
+                        </div>
+                    </div>
+                    <div v-else v-text="body" style="line-height: 1.9rem; font-size: 1.25rem; white-space: pre-wrap;"></div>
+                    <!--<p class="card-tex" style="line-height: 1.9rem; font-size: 1.25rem">{!! nl2br($post->body) !!}</p>-->
+                    
+                     @can('update', $post)
+                    <div class="actions text-right">
+                         <!--Editing reply-->
+                        <button class="btn btn-link pt-4 pl-0 pb-0" title="Edit"  @click="editing = true">
+                            <span class=""><i class="far fa-edit fa-lg"></i></span>
                         </button>
-                    </form>
+                        
+                        <!--Ajaxifying delete button-->
+                        <button class="btn btn-link pt-4 pl-0 pb-0" title="Delete" @click="destroy">
+                            <span class="text-danger"><i class="far fa-trash-alt fa-lg"></i></span>
+                        </button>
+                    </div>
                     @endcan
+                        
+                    <!--@can('update', $post)-->
+                    <!--<form action="{{ $post->path() }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?');">-->
+                    <!--    @csrf-->
+                    <!--    @method('DELETE')-->
+                    <!--    <button -->
+                    <!--        type="submit" -->
+                    <!--        class="btn btn-outline-danger py-1 prevent"-->
+                    <!--        title="Delete Post"-->
+                    <!--    > Delete-->
+                    <!--    </button>-->
+                    <!--</form>-->
+                    <!--@endcan-->
                     
                     <div class="py-2">
                         <hr>
@@ -80,4 +104,5 @@
         </div>
     </div>
 </div>
+</post>
 @endsection

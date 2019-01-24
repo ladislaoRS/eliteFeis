@@ -23,6 +23,8 @@ Route::get('posts/{tag}/{post}', 'PostsController@show');
 Route::delete('posts/{tag}/{post}', 'PostsController@destroy');
 Route::post('posts', 'PostsController@store');
 Route::get('posts/{tag}', 'PostsController@index');
+Route::patch('posts/{post}', 'PostsController@update');
+
 Route::post('/posts/{tag}/{post}/replies', 'RepliesController@store');
 
 Route::post('/replies/{reply}/favorites', 'FavoritesController@store');

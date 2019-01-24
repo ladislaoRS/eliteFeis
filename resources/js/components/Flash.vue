@@ -1,5 +1,5 @@
 <template>
-    <div class="alert alert-success alert-flash" role="alert" v-show="show">
+    <div class="alert alert-success border-2 border-success alert-flash" role="alert" v-show="show">
         {{ body }}
   </button>
 </div>
@@ -35,7 +35,7 @@
            hide() {
                setTimeout (() => {
                    this.show = false;
-               }, 3000);
+               }, 5000);
            }
        }
     }
