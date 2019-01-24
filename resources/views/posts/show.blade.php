@@ -7,10 +7,16 @@
             <div class="card mb-3 border-0" id="post">
                 <div class="card-body py-0 px-1">
                     <h1 class="card-title">{{ $post->title }}</h1>
-                    <h6 class="card-subtitle mb-4 text-muted"> 
+                    <h6 class="card-subtitle mb-2 text-muted"> 
                         {{ $post->created_at->toFormattedDateString() }} by
                         <a href="/profiles/{{ $post->creator->name }}">{{ $post->creator->name }}</a>
                     </h6>
+                    @if (Auth::check())
+                        <subscribe-button :active="{{ json_encode($post->isSubscribedTo) }}"></subscribe-button>
+                    @endif
+                    
+                    <div class="mb-4"> </div>
+                    
                     <p class="card-tex" style="line-height: 1.9rem; font-size: 1.25rem">{!! nl2br($post->body) !!}</p>
                     @can('update', $post)
                     <form action="{{ $post->path() }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?');">

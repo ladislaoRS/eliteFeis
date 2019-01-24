@@ -31,6 +31,9 @@ Route::delete('/replies/{reply}/favorites', 'FavoritesController@destroy');
 Route::delete('replies/{reply}', 'RepliesController@destroy');
 Route::patch('replies/{reply}', 'RepliesController@update');
 
+Route::post('/posts/{tag}/{post}/subscriptions', 'PostSubscriptionsController@store')->middleware('auth');
+Route::delete('/posts/{tag}/{post}/subscriptions', 'PostSubscriptionsController@destroy')->middleware('auth');
+
 Route::get('/profiles/{user}/activity', 'ProfilesController@activity');
 Route::get('/profiles/{user}', 'ProfilesController@show');
 

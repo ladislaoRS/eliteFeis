@@ -19,6 +19,7 @@ window.Vue = require('vue');
 
 Vue.component('flash', require('./components/Flash.vue'));
 Vue.component('reply', require('./components/Reply.vue'));
+Vue.component('subscribe-button', require('./components/SubscribeButton.vue'));
 
 // const files = require.context('./', true, /\.vue$/i)
 
