@@ -73,7 +73,7 @@
                             <form method="POST" action="{{ $post->path() }}/replies">
                                 @csrf
                                 <div class="form-group">
-                                    <textarea name="body" class="form-control" id="body" placeholder="Write a response..." rows="5" required></textarea>
+                                    <textarea name="body" class="form-control p-3" id="body" placeholder="Write a response..." rows="5" required></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-outline-primary btn-sm">
                                     <span class=""><i class="fas fa-reply"></i> Reply</span>

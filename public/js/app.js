@@ -48846,7 +48846,7 @@ var render = function() {
         _c(
           "div",
           {
-            staticClass: "dropdown-menu pt-0 border-0",
+            staticClass: "dropdown-menu pt-0 border-0 pb-0 bg-transparent",
             staticStyle: { "min-width": "20rem" }
           },
           _vm._l(_vm.notifications, function(notification) {
@@ -48854,7 +48854,7 @@ var render = function() {
               "div",
               {
                 staticClass:
-                  "alert alert-light alert-dismissible border-1 border-info fade show p-3 mb-2",
+                  "p-3 mb-2 shadow-sm border border-light rounded bg-white",
                 attrs: { role: "alert" }
               },
               [

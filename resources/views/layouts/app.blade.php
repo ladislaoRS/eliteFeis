@@ -34,7 +34,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto text-uppercase" style="font-size: 0.9rem">
+                    <ul class="navbar-nav mr-auto text-uppercase" style="font-size: 1rem">
                         <!--<li class="nav-item">-->
                         <!--    <a class="nav-link text-center border rounded" href="/posts/create">New Post</a>-->
                         <!--</li>-->
@@ -76,11 +76,11 @@
                         @else
                             <user-notifications></user-notifications>
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-uppercase" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-right text-uppercase" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item my-2" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

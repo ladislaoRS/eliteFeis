@@ -7,17 +7,16 @@
                     <h6 class="mt-0"><a href="/profiles/{{ $reply->owner->name }}"><span>@</span>{{ $reply->owner->name }}</a>
                     <span class="d-block text-gray-dark pt-1">{{ $reply->created_at->diffForHumans() }}</span>
                     </h6>
-                    <div v-if="editing">
-                        <div class="form-group">
-                            <textarea class="form-control mb-2" rows="4" v-model="body"></textarea>
-                            <button @click="update" class="btn btn-outline-primary btn-sm">Update</button>
-                            <button @click="editing = false" class="btn btn-outline-secondary btn-sm" title="Cancel">Cancel</button>
-                        </div>
-                    </div>
-                    <div v-else v-text="body" style="font-size: .9rem"></div>
-                    
                 </div>
             </div>
+            <div v-if="editing">
+                <div class="form-group">
+                    <textarea class="form-control mb-2" rows="4" v-model="body"></textarea>
+                    <button @click="update" class="btn btn-outline-primary btn-sm">Update</button>
+                    <button @click="editing = false" class="btn btn-outline-secondary btn-sm" title="Cancel">Cancel</button>
+                </div>
+            </div>
+            <div v-else v-text="body" style="font-size: .9rem"></div>
             
             <!--Favorite-->
             @if(Auth::check())

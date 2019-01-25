@@ -4,8 +4,8 @@
             <span class="fas fa-bell"></span>
         </a>
         
-        <div class="dropdown-menu pt-0 border-0" style="min-width: 20rem;">
-            <div class="alert alert-light alert-dismissible border-1 border-info fade show p-3 mb-2" role="alert" v-for="notification in notifications">
+        <div class="dropdown-menu pt-0 border-0 pb-0 bg-transparent" style="min-width: 20rem;">
+            <div class="p-3 mb-2 shadow-sm border border-light rounded bg-white" role="alert" v-for="notification in notifications">
                 <a :href="notification.data.link"
                    v-text="notification.data.message"
                    @click="markAsRead(notification)"
