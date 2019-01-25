@@ -66,7 +66,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link text-success" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link mx-2" href="{{ route('login') }}"> <span class="text-success">{{ __('Login') }}</span></a>
                             </li>
                             <li class="nav-item">
                                 @if (Route::has('register'))
@@ -74,6 +74,7 @@
                                 @endif
                             </li>
                         @else
+                            <user-notifications></user-notifications>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -104,5 +105,12 @@
         </main>
        <flash message="{{ session('flash') }}"></flash>
     </div>
+    <script>
+        window.App = {!! json_encode([
+            'csrfToken' => csrf_token(),
+            'user' => Auth::user(),
+            'signedIn' => Auth::check()
+        ]) !!};
+    </script>
 </body>
 </html>

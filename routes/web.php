@@ -38,4 +38,6 @@ Route::delete('/posts/{tag}/{post}/subscriptions', 'PostSubscriptionsController@
 
 Route::get('/profiles/{user}/activity', 'ProfilesController@activity');
 Route::get('/profiles/{user}', 'ProfilesController@show');
+Route::get('/profiles/{user}/notifications', 'UserNotificationsController@index');
+Route::delete('/profiles/{user}/notifications/{notification}', 'UserNotificationsController@destroy');
 

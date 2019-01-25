@@ -59,7 +59,13 @@ class Post extends Model
     
     public function addReply($reply)
     {
-        $this->replies()->create($reply);
+        $reply = $this->replies()->create($reply);
+        // Prepare notifications for all subscribers.
+        $this->subscriptions
+            ->where('user_id', '!=', $reply->user_id)
+            ->each
+            ->notify($reply);
+        return $reply;
     }
     
     public function path()
@@ -83,12 +89,16 @@ class Post extends Model
      * Subscribe a user to the current thread.
      *
      * @param int|null $userId
+     * @param  int|null $userId
+     * @return $this
      */
     public function subscribe($userId = null)
     {
         $this->subscriptions()->create([
             'user_id' => $userId ?: Auth::user()->id
         ]);
+        
+        return $this;
     }
     /**
      * Unsubscribe a user from the current thread.
@@ -117,6 +127,9 @@ class Post extends Model
      */
     public function getIsSubscribedToAttribute()
     {
+        if (auth()->guest()) {
+            return;
+        }
         return $this->subscriptions()
             ->where('user_id', Auth::user()->id)
             ->exists();

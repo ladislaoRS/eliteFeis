@@ -12,15 +12,12 @@
                         {{ $post->created_at->toFormattedDateString() }} by
                         <a href="/profiles/{{ $post->creator->name }}">{{ $post->creator->name }}</a>
                     </h6>
-                    @if (Auth::check())
-                        <subscribe-button :active="{{ json_encode($post->isSubscribedTo) }}"></subscribe-button>
-                    @endif
                     
                     <div class="mb-4"> </div>
                     
                     <div v-if="editing">
                         <div class="form-group">
-                            <textarea class="form-control mb-2" rows="15" v-model="body" style="line-height: 1.9rem; font-size: 1.25rem"></textarea>
+                            <textarea class="form-control mb-2" rows="8" v-model="body" style="line-height: 1.9rem; font-size: 1.25rem"></textarea>
                             <button @click="update" class="btn btn-outline-primary btn-sm">Update</button>
                             <button @click="editing = false" class="btn btn-outline-secondary btn-sm" title="Cancel">Cancel</button>
                         </div>
@@ -29,17 +26,17 @@
                     <!--<p class="card-tex" style="line-height: 1.9rem; font-size: 1.25rem">{!! nl2br($post->body) !!}</p>-->
                     
                      @can('update', $post)
-                    <div class="actions text-right">
-                         <!--Editing reply-->
-                        <button class="btn btn-link pt-4 pl-0 pb-0" title="Edit"  @click="editing = true">
-                            <span class=""><i class="far fa-edit fa-lg"></i></span>
-                        </button>
-                        
-                        <!--Ajaxifying delete button-->
-                        <button class="btn btn-link pt-4 pl-0 pb-0" title="Delete" @click="destroy">
-                            <span class="text-danger"><i class="far fa-trash-alt fa-lg"></i></span>
-                        </button>
-                    </div>
+                        <div class="actions text-right">
+                             <!--Editing reply-->
+                            <button class="btn btn-link pt-4 pl-0 pb-0" title="Edit"  @click="editing = true">
+                                <span class=""><i class="far fa-edit"></i></span> Edit
+                            </button>
+                            
+                            <!--Ajaxifying delete button-->
+                            <button class="btn btn-link pt-4 pl-0 pb-0" title="Delete" @click="destroy">
+                                <span class="text-danger"><i class="far fa-trash-alt"></i> Delete</span>
+                            </button>
+                        </div>
                     @endcan
                         
                     <!--@can('update', $post)-->
@@ -78,9 +75,8 @@
                                 <div class="form-group">
                                     <textarea name="body" class="form-control" id="body" placeholder="Write a response..." rows="5" required></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-sm">
-                                    <span class=""><i class="fas fa-reply fa-sm"></i></span>
-                                    Reply
+                                <button type="submit" class="btn btn-outline-primary btn-sm">
+                                    <span class=""><i class="fas fa-reply"></i> Reply</span>
                                 </button>
                             </form>
                         @else
@@ -95,10 +91,13 @@
             <aside class="blog-sidebar">
                 <div class="p-3 mb-3 bg-light rounded">
                 <h4 class="font-italic">About</h4>
-                <p class="mb-0">
+                <p class="mb-2">
                     This post was published {{ $post->created_at->diffForHumans() }} by 
                     <a href="/profiles/{{ $post->creator->name }}">{{ $post->creator->name }}</a>, and currently has {{ $post->replies_count }} {{ str_plural('comment', $post->replies_count) }}.
                 </p>
+                @if (Auth::check())
+                    <subscribe-button :active="{{ json_encode($post->isSubscribedTo) }}"></subscribe-button>
+                @endif
                 </div>
             </aside><!-- /.blog-sidebar -->
         </div>

@@ -19,7 +19,7 @@
         computed: {
             classes() {
                 return [
-                    this.active ? 'fas fa-heart fa-lg' : 'far fa-heart fa-lg'
+                    this.active ? 'fas fa-heart' : 'far fa-heart'
                 ];
             },
             endpoint() {

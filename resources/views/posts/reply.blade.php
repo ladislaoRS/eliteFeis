@@ -27,12 +27,12 @@
             @can('update', $reply)
                 <!--Editing reply-->
                 <button class="btn btn-link pt-4 pl-0 pb-0" title="Edit" @click="editing = true">
-                    <span class=""><i class="far fa-edit fa-lg"></i></span>
+                    <span class=""><i class="far fa-edit"></i> Edit</span>
                 </button>
                 
                 <!--Ajaxifying delete button-->
                 <button class="btn btn-link pt-4 pl-0 pb-0" title="Delete" @click="destroy">
-                    <span class="text-danger"><i class="far fa-trash-alt fa-lg"></i></span>
+                    <span class="text-danger"><i class="far fa-trash-alt"></i> Delete</span>
                 </button>
             @endcan
         </div>
