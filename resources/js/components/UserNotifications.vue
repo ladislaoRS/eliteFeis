@@ -1,6 +1,7 @@
 <template>
     <li class="nav-link dropdown" v-if="notifications.length">
-        <a href="#" class="" data-toggle="dropdown">
+        <span class="badge rounded-circle badge-danger" style="float:right; position:relative; margin-top:-2px; margin-left:-8px; font-size: 60%">{{ notifications.length }}</span>
+        <a href="#" class="text-secondary" data-toggle="dropdown">
             <span class="fas fa-bell"></span>
         </a>
         
@@ -13,6 +14,12 @@
                 ></a>
             </div>
         </div>
+    </li>
+    <li class="nav-link dropdown" v-else>
+        <span class="badge rounded-circle badge-danger"></span>
+        <a href="#" class="text-secondary">
+            <span class="far fa-bell"></span>
+        </a>
     </li>
 </template>
 

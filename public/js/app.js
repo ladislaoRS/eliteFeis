@@ -48811,6 +48811,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -48841,6 +48848,21 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.notifications.length
     ? _c("li", { staticClass: "nav-link dropdown" }, [
+        _c(
+          "span",
+          {
+            staticClass: "badge rounded-circle badge-danger",
+            staticStyle: {
+              float: "right",
+              position: "relative",
+              "margin-top": "-2px",
+              "margin-left": "-8px",
+              "font-size": "60%"
+            }
+          },
+          [_vm._v(_vm._s(_vm.notifications.length))]
+        ),
+        _vm._v(" "),
         _vm._m(0),
         _vm._v(" "),
         _c(
@@ -48874,15 +48896,32 @@ var render = function() {
           0
         )
       ])
-    : _vm._e()
+    : _c("li", { staticClass: "nav-link dropdown" }, [
+        _c("span", { staticClass: "badge rounded-circle badge-danger" }),
+        _vm._v(" "),
+        _vm._m(1)
+      ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "#", "data-toggle": "dropdown" } }, [
-      _c("span", { staticClass: "fas fa-bell" })
+    return _c(
+      "a",
+      {
+        staticClass: "text-secondary",
+        attrs: { href: "#", "data-toggle": "dropdown" }
+      },
+      [_c("span", { staticClass: "fas fa-bell" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "text-secondary", attrs: { href: "#" } }, [
+      _c("span", { staticClass: "far fa-bell" })
     ])
   }
 ]
