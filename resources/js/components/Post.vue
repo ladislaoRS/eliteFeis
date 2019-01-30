@@ -1,17 +1,26 @@
 <script>
+    import Replies from './Replies.vue';
+    import NewReply from './NewReply.vue';
+
     export default {
-        props: ['attributes'],
+        components: { 
+            Replies,
+            NewReply
+        },
+        
+        props: ['data', 'initialRepliesCount'],
         
         data () {
             return {
                 editing: false,
-                body: this.attributes.body
+                body: this.data.body,
+                repliesCount: this.initialRepliesCount
             };
         },
         
         methods: {
             update () {
-                axios.patch('/posts/' + this.attributes.id, {
+                axios.patch('/posts/' + this.data.id, {
                     body: this.body
                 });
                 this.editing = false;
@@ -20,7 +29,7 @@
             },
             
             destroy () {
-                axios.delete('/posts/' + this.attributes.tag+ "/" + this.attributes.id);
+                axios.delete('/posts/' + this.data.tag+ "/" + this.data.id);
                 
                 window.location.href = "/posts";
                 

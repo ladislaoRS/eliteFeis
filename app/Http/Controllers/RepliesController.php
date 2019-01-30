@@ -42,10 +42,18 @@ class RepliesController extends Controller
      */
     public function store($tagId, Request $request, Post $post)
     {
-        $post->addReply([
+         $request->validate([
+             'body' => 'required'
+        ]);
+
+        $reply = $post->addReply([
             'user_id' => auth()->id(),
             'body' => $request->input('body'),
         ]);
+        
+         if (request()->expectsJson()) {
+            return $reply->load('owner');
+        }
         
         return back()->with('flash', 'You just replied this post');
     }

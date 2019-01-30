@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<post :attributes="{{ $post }}" inline-template v-cloak>
+<post :data="{{ $post }}" :initial-replies-count="{{ $post->replies_count }}" inline-template v-cloak>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -38,19 +38,6 @@
                             </button>
                         </div>
                     @endcan
-                        
-                    <!--@can('update', $post)-->
-                    <!--<form action="{{ $post->path() }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?');">-->
-                    <!--    @csrf-->
-                    <!--    @method('DELETE')-->
-                    <!--    <button -->
-                    <!--        type="submit" -->
-                    <!--        class="btn btn-outline-danger py-1 prevent"-->
-                    <!--        title="Delete Post"-->
-                    <!--    > Delete-->
-                    <!--    </button>-->
-                    <!--</form>-->
-                    <!--@endcan-->
                     
                     <div class="py-2">
                         <hr>
@@ -64,25 +51,9 @@
                             <div class="">Responses</div>
                         @endif
                         
-                        @foreach($replies as $reply)
-                            @include('posts.reply')
-                        @endforeach
-                        <div class="">{{ $replies->links() }}</div>
-                        
-                        @if (Auth::check())
-                            <form method="POST" action="{{ $post->path() }}/replies">
-                                @csrf
-                                <div class="form-group">
-                                    <textarea name="body" class="form-control p-3" id="body" placeholder="Write a response..." rows="5" required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-outline-primary btn-sm">
-                                    <span class=""><i class="fas fa-reply"></i> Reply</span>
-                                </button>
-                            </form>
-                        @else
-                            <p class="text-center">Please <a href="{{ route('login') }}">Sign In</a> to participate in this discussion.</p>
-                        @endif
-                        
+                       <replies :data="{{ $post->replies }}"
+                        @added="repliesCount++"
+                        @removed="repliesCount--"></replies>
                     </div>
                 </div>
             </div>
@@ -93,7 +64,7 @@
                 <h4 class="font-italic">About</h4>
                 <p class="mb-2">
                     This post was published {{ $post->created_at->diffForHumans() }} by 
-                    <a href="/profiles/{{ $post->creator->name }}">{{ $post->creator->name }}</a>, and currently has {{ $post->replies_count }} {{ str_plural('comment', $post->replies_count) }}.
+                    <a href="/profiles/{{ $post->creator->name }}">{{ $post->creator->name }}</a>, and currently has <span v-text="repliesCount"></span> {{ str_plural('comment', $post->replies_count) }}.
                 </p>
                 @if (Auth::check())
                     <subscribe-button :active="{{ json_encode($post->isSubscribedTo) }}"></subscribe-button>
