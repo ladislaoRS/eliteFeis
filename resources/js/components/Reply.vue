@@ -4,7 +4,7 @@
             <div class="media text-muted">
                 <img class="mr-2 rounded-circle" src="https://images.unsplash.com/photo-1544501616-6c71ff5438ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80https://images.unsplash.com/photo-1514626585111-9aa86183ac98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="Profile" width="32" height="32">
                 <div class="media-body">
-                    <h6 class="mt-0"><a href="'/profiles/'+data.owner.name" v-text="'@' + data.owner.name"><span>@</span></a>
+                    <h6 class="mt-0"><a :href="'/profiles/' + data.owner.name" v-text="'@' + data.owner.name"><span>@</span></a>
                     <span class="d-block text-gray-dark pt-1" v-text="ago"></span>
                     </h6>
                 </div>

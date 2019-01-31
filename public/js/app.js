@@ -66145,7 +66145,7 @@ var render = function() {
                 _c(
                   "a",
                   {
-                    attrs: { href: "'/profiles/'+data.owner.name" },
+                    attrs: { href: "/profiles/" + _vm.data.owner.name },
                     domProps: { textContent: _vm._s("@" + _vm.data.owner.name) }
                   },
                   [_c("span", [_vm._v("@")])]
