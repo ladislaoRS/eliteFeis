@@ -65156,10 +65156,10 @@ var render = function() {
       directives: [
         { name: "show", rawName: "v-show", value: _vm.show, expression: "show" }
       ],
-      staticClass: "alert alert-success border-1 border-success alert-flash",
+      staticClass: "alert bg-primary text-white alert-flash shadow",
       attrs: { role: "alert" }
     },
-    [_vm._v("\n        " + _vm._s(_vm.body) + "\n  ")]
+    [_vm._v("\n       " + _vm._s(_vm.body) + "\n  ")]
   )
 }
 var staticRenderFns = []

@@ -1,6 +1,6 @@
 <template>
-    <div class="alert alert-success border-1 border-success alert-flash" role="alert" v-show="show">
-        {{ body }}
+    <div class="alert bg-primary text-white alert-flash shadow" role="alert" v-show="show">
+       {{ body }}
   </button>
 </div>
 </template>
