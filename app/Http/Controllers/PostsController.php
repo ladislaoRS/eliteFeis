@@ -72,10 +72,7 @@ class PostsController extends Controller
      */
     public function show($tagId, Post $post)
     {
-        return view('posts.show', [
-            'post' => $post,
-            'replies' => $post->replies()->latest()->paginate(3)
-        ]);
+        return view('posts.show', compact('post'));
     }
 
     /**

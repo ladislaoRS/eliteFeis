@@ -23,8 +23,7 @@
                         </div>
                     </div>
                     <div v-else v-text="body" style="line-height: 1.9rem; font-size: 1.25rem; white-space: pre-wrap;"></div>
-                    <!--<p class="card-tex" style="line-height: 1.9rem; font-size: 1.25rem">{!! nl2br($post->body) !!}</p>-->
-                    
+
                      @can('update', $post)
                         <div class="actions text-right">
                              <!--Editing reply-->
@@ -45,15 +44,13 @@
                     <div class="bg-light p-3 my-2 rounded">
                         
                         <!--Replies section-->
-                        @if($replies->isEmpty())
+                        @if($post->replies->isEmpty())
                             <div class="pb-3 text-center text-muted">This post has no replies yet.</div>
                         @else
                             <div class="">Responses</div>
                         @endif
                         
-                       <replies :data="{{ $post->replies }}"
-                        @added="repliesCount++"
-                        @removed="repliesCount--"></replies>
+                       <replies @added="repliesCount++" @removed="repliesCount--"></replies>
                     </div>
                 </div>
             </div>

@@ -12,16 +12,16 @@ class RepliesController extends Controller
     
     public function __construct()
     {
-         $this->middleware('auth');
+         $this->middleware('auth', ['except' => 'index']);
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($tagId, Post $post)
     {
-        //
+        return $post->replies()->paginate(5);
     }
 
     /**

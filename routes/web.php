@@ -26,6 +26,7 @@ Route::get('posts/{tag}', 'PostsController@index');
 Route::patch('posts/{post}', 'PostsController@update');
 
 Route::post('/posts/{tag}/{post}/replies', 'RepliesController@store');
+Route::get('/posts/{tag}/{post}/replies', 'RepliesController@index');
 
 Route::post('/replies/{reply}/favorites', 'FavoritesController@store');
 Route::delete('/replies/{reply}/favorites', 'FavoritesController@destroy');
