@@ -7,10 +7,18 @@
             <div class="card border-0">
                 <div class="card-body pt-0 px-1">
                         @forelse($posts as $post)
-                            <div class="card border-0 mb-4">
+                            <div class="card border-0 mb-4" id="posts">
                                 <div class="card-body py-0 px-0">
                                     <h6 class="text-uppercase mb-0"><a href="/posts/{{ $post->tag->slug }}" class="text-muted">{{$post->tag->name}}</a></h6>
-                                    <h4 class="card-title post-index"><a href="{{ $post->path() }}">{{ $post->title }}</a></h4>
+                                    <h4 class="card-title post-index"><a href="{{ $post->path() }}">
+                                        @if (Auth::user() && !$post->hasUpdatesFor(Auth::user()))
+                                            <span class="text-muted">
+                                                {{ $post->title }}
+                                            </span>
+                                        @else
+                                            {{ $post->title }}
+                                        @endif
+                                    </a></h4>
                                     <h6 class="card-subtitle mb-3 text-muted"> 
                                         {{ $post->created_at->toFormattedDateString() }} by
                                         <a href="/profiles/{{ $post->creator->name }}">{{ $post->creator->name }}</a>

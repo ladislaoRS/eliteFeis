@@ -72,6 +72,10 @@ class PostsController extends Controller
      */
     public function show($tagId, Post $post)
     {
+        if (auth()->check()) {
+            auth()->user()->read($post);
+        }
+        
         return view('posts.show', compact('post'));
     }
 

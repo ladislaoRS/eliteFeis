@@ -33,6 +33,10 @@ body {
     color: #212529;
 }
 
+div#posts h4 {
+    font-family: 'PT Serif', serif;
+}
+
 .post-index a:hover {
     color: #6c757d!important;
     text-decoration: none;

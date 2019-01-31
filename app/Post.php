@@ -134,4 +134,16 @@ class Post extends Model
             ->where('user_id', Auth::user()->id)
             ->exists();
     }
+    
+    /**
+     * Determine if the thread has been updated since the user last read it.
+     *
+     * @param  User $user
+     * @return bool
+     */
+    public function hasUpdatesFor($user)
+    {
+        $key = $user->visitedPostCacheKey($this);
+        return $this->updated_at > cache($key);
+    }
 }
