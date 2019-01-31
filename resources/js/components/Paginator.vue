@@ -1,6 +1,6 @@
 <template>
-    <ul class="pagination pagination-sm" v-if="shouldPaginate">
-        <li v-show="prevUrl" class="page-item mr-2" aria-label="Previous" rel="prev" @click.prevent="page--">
+    <ul class="pagination pagination-sm justify-content-center" v-if="shouldPaginate">
+        <li v-show="prevUrl" class="page-item" aria-label="Previous" rel="prev" @click.prevent="page--">
             <span class="page-link">&laquo; Previous</span>
         </li>
         <li v-show="nextUrl" class="page-item" aria-label="Next" rel="next" @click.prevent="page++">

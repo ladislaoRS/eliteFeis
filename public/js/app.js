@@ -65281,53 +65281,57 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.shouldPaginate
-    ? _c("ul", { staticClass: "pagination pagination-sm" }, [
-        _c(
-          "li",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.prevUrl,
-                expression: "prevUrl"
+    ? _c(
+        "ul",
+        { staticClass: "pagination pagination-sm justify-content-center" },
+        [
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.prevUrl,
+                  expression: "prevUrl"
+                }
+              ],
+              staticClass: "page-item",
+              attrs: { "aria-label": "Previous", rel: "prev" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  _vm.page--
+                }
               }
-            ],
-            staticClass: "page-item mr-2",
-            attrs: { "aria-label": "Previous", rel: "prev" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                _vm.page--
+            },
+            [_c("span", { staticClass: "page-link" }, [_vm._v("« Previous")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.nextUrl,
+                  expression: "nextUrl"
+                }
+              ],
+              staticClass: "page-item",
+              attrs: { "aria-label": "Next", rel: "next" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  _vm.page++
+                }
               }
-            }
-          },
-          [_c("span", { staticClass: "page-link" }, [_vm._v("« Previous")])]
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.nextUrl,
-                expression: "nextUrl"
-              }
-            ],
-            staticClass: "page-item",
-            attrs: { "aria-label": "Next", rel: "next" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                _vm.page++
-              }
-            }
-          },
-          [_c("span", { staticClass: "page-link" }, [_vm._v("Next »")])]
-        )
-      ])
+            },
+            [_c("span", { staticClass: "page-link" }, [_vm._v("Next »")])]
+          )
+        ]
+      )
     : _vm._e()
 }
 var staticRenderFns = []
