@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('head')
+    <link rel="stylesheet" href="/css/vendor/jquery.atwho.css">
+@endsection
 @section('content')
 <post :data="{{ $post }}" :initial-replies-count="{{ $post->replies_count }}" inline-template v-cloak>
 <div class="container">

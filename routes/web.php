@@ -15,8 +15,22 @@ Route::get('/', function () {
     //return view('welcome');
     return redirect('/posts');
 });
+
+/*
+|--------------------------------------------------------------------------
+| Auth Routes
+|--------------------------------------------------------------------------
+|
+*/
 Auth::routes();
-Route::get('/home', 'HomeController@index');
+
+/*
+|--------------------------------------------------------------------------
+| Auth Routes
+|--------------------------------------------------------------------------
+|
+*/
+// Route::get('/home', 'HomeController@index');
 Route::get('posts', 'PostsController@index');
 Route::get('posts/create', 'PostsController@create');
 Route::get('posts/{tag}/{post}', 'PostsController@show');
@@ -25,20 +39,65 @@ Route::post('posts', 'PostsController@store');
 Route::get('posts/{tag}', 'PostsController@index');
 Route::patch('posts/{post}', 'PostsController@update');
 
+/*
+|--------------------------------------------------------------------------
+| Posts Routes
+|--------------------------------------------------------------------------
+|
+*/
 Route::post('/posts/{tag}/{post}/replies', 'RepliesController@store');
 Route::get('/posts/{tag}/{post}/replies', 'RepliesController@index');
 
+/*
+|--------------------------------------------------------------------------
+| Favorites Routes
+|--------------------------------------------------------------------------
+|
+*/
 Route::post('/replies/{reply}/favorites', 'FavoritesController@store');
 Route::delete('/replies/{reply}/favorites', 'FavoritesController@destroy');
 
+/*
+|--------------------------------------------------------------------------
+| Replies Routes
+|--------------------------------------------------------------------------
+|
+*/
 Route::delete('replies/{reply}', 'RepliesController@destroy');
 Route::patch('replies/{reply}', 'RepliesController@update');
 
+/*
+|--------------------------------------------------------------------------
+| Susbscriptions Routes
+|--------------------------------------------------------------------------
+|
+*/
 Route::post('/posts/{tag}/{post}/subscriptions', 'PostSubscriptionsController@store')->middleware('auth');
 Route::delete('/posts/{tag}/{post}/subscriptions', 'PostSubscriptionsController@destroy')->middleware('auth');
 
+/*
+|--------------------------------------------------------------------------
+| PRofiles Routes
+|--------------------------------------------------------------------------
+|
+*/
 Route::get('/profiles/{user}/activity', 'ProfilesController@activity');
 Route::get('/profiles/{user}', 'ProfilesController@show');
+
+/*
+|--------------------------------------------------------------------------
+| Notifications Routes
+|--------------------------------------------------------------------------
+|
+*/
 Route::get('/profiles/{user}/notifications', 'UserNotificationsController@index');
 Route::delete('/profiles/{user}/notifications/{notification}', 'UserNotificationsController@destroy');
+
+/*
+|--------------------------------------------------------------------------
+| Api Users Routes
+|--------------------------------------------------------------------------
+|
+*/
+Route::get('api/users', 'Api\UsersController@index');
 

@@ -6,10 +6,12 @@ use App\Filters\PostFilters;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use App\Events\PostReceivedNewReply;
 
 class Post extends Model
 {
      use RecordsActivity;
+     
      /**
      * The attributes that aren't mass assignable.
      *
@@ -61,10 +63,13 @@ class Post extends Model
     {
         $reply = $this->replies()->create($reply);
         // Prepare notifications for all subscribers.
-        $this->subscriptions
-            ->where('user_id', '!=', $reply->user_id)
-            ->each
-            ->notify($reply);
+        // $this->subscriptions
+        //     ->where('user_id', '!=', $reply->user_id)
+        //     ->each
+        //     ->notify($reply);
+            
+        event(new PostReceivedNewReply($reply));
+        
         return $reply;
     }
     
@@ -146,4 +151,5 @@ class Post extends Model
         $key = $user->visitedPostCacheKey($this);
         return $this->updated_at > cache($key);
     }
+    
 }

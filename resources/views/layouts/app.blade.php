@@ -20,6 +20,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    
+     @yield('head')
 </head>
 <body>
     <div id="app">
@@ -65,12 +67,12 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link mx-2" href="{{ route('login') }}"> <span class="text-success">{{ __('Login') }}</span></a>
+                            <li class="nav-item mr-2">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('LOGIN') }}</span></a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item register-link">
                                 @if (Route::has('register'))
-                                    <a class="nav-link  btn-outline-success text-success text-center border border-success rounded" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link text-success text-center" href="{{ route('register') }}">{{ __('REGISTER') }}</a>
                                 @endif
                             </li>
                         @else

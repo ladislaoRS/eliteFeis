@@ -16,7 +16,7 @@
                     <button @click="editing = false" class="btn btn-outline-secondary btn-sm" title="Cancel">Cancel</button>
                 </div>
             </div>
-            <div v-else v-text="body" style="font-size: .9rem"></div>
+            <div v-else v-html="body" style="font-size: .9rem"></div>
          
             <template v-if="signedIn">
                 <favorite :reply="data"></favorite>
