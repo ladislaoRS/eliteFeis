@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card mb-3 border-0 bg-transparent
+            <div class="card mb-3 border-0 bg-transparent">
                 <div class="card-body py-0 px-1">
                     <span class="h1">{{ $profileUser->name }}</span>
                     <br>
