@@ -2,6 +2,7 @@ body {
      font-family: Source Sans Pro, sans-serif;
      font-size: 1rem;
      counter-reset: my-sec-counter;
+     background-color: #f7f7f7;
  }
  
  #post h1 {
@@ -10,14 +11,18 @@ body {
 
 .navbar>a.text-success:focus, a.text-success:hover {
     color: #fff!important;
-    background-color: #38c172;
-    border-radius: 0.3rem;
+    /*background-color: #38c172;*/
 }
 
 .register-link {
     border: 1px solid;
-    background-color: #fff;
+    /*background-color: #fff;*/
     border-color: #38c172;
+    border-radius: 0.3rem;
+}
+
+.register-link:hover {
+    border-color: #fff;
     border-radius: 0.3rem;
 }
 

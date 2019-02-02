@@ -66122,7 +66122,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "card my-4", attrs: { id: "reply-" + _vm.id } },
+    {
+      staticClass: "card my-4 border-0 shadow-sm",
+      attrs: { id: "reply-" + _vm.id }
+    },
     [
       _c(
         "div",
@@ -68480,7 +68483,7 @@ var staticRenderFns = [
         staticClass: "text-secondary",
         attrs: { href: "#", "data-toggle": "dropdown" }
       },
-      [_c("span", { staticClass: "fas fa-bell" })]
+      [_c("span", { staticClass: "fas fa-bell fa-lg" })]
     )
   },
   function() {

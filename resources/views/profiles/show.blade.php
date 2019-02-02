@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card mb-3 border-0">
+            <div class="card mb-3 border-0 bg-transparent">
                 <div class="card-body py-0 px-1">
                     <span class="h1">{{ $profileUser->name }}</span>
                     <br>
@@ -15,7 +15,7 @@
                     <h5 class="mb-3 font-weight-bold">Latest</h5>
                     
                     @forelse($profileUser->posts as $post)
-                    <div class="card mb-3 shadow-sm">
+                    <div class="card mb-3 shadow-sm border-0">
                         <div class="card-body">
                             <h5 class="card-title"><a class="text-dark" href="{{ $post->path() }}">{{ $post->title }}</a></h5>
                             <h6 class="card-subtitle mb-3 text-muted">{{ $post->creator->name }} | {{ $post->created_at->toFormattedDateString() }}</h6>

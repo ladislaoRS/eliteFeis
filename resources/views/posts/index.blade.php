@@ -3,11 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card border-0">
+        <div class="col-md-8 border-right">
+            <div class="card border-0 bg-transparent">
                 <div class="card-body pt-0 px-1">
                         @forelse($posts as $post)
-                            <div class="card border-0 mb-4" id="posts">
+                            <div class="card border-0 mb-2 bg-transparent" id="posts">
                                 <div class="card-body py-0 px-0">
                                     <h6 class="text-uppercase mb-0"><a href="/posts/{{ $post->tag->slug }}" class="text-muted">{{$post->tag->name}}</a></h6>
                                     <h4 class="card-title post-index"><a href="{{ $post->path() }}">
@@ -23,7 +23,7 @@
                                         {{ $post->created_at->toFormattedDateString() }} by
                                         <a href="/profiles/{{ $post->creator->name }}">{{ $post->creator->name }}</a>
                                     </h6>
-                                    <p class="card-text lead text-muted">{{ substr($post->body, 0, 200) }} <a href="{{ $post->path() }}">...</a></p>
+                                    <p class="card-text">{{ substr($post->body, 0, 150) }} <a class="btn btn-link pl-0"href="{{ $post->path() }}">...more </a></p>
                                     <a href="{{ $post->path() }}" class="card-link">
                                         <span class=""><i class="far fa-comment"></i></span>
                                         <span class="">{{ $post->replies_count }}</span>
@@ -46,16 +46,16 @@
         </div>
         <div class="col-md-4">
             <aside class="blog-sidebar">
-                <a href="/posts/create" class="btn btn-primary btn-lg btn-block">
+                <a href="/posts/create" class="btn btn-primary btn-lg btn-block shadow">
                     Write a New Post
                 </a>
                 <div class="pb-4"></div>
-                <div class="p-3 mb-3 bg-light rounded">
+                <div class="p-3 mb-3 bg-white shadow-sm rounded">
                     <h4 class="font-italic">Bookmarked</h4>
                     <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
                 </div>
 
-                <div class="p-4">
+                <div class="p-4 bg-white shadow-sm rounded">
                     <h4 class="">Popular on FeisElite</h4>
                     <hr>
                     <ul class="list-unstyled" id="popular">

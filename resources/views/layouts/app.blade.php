@@ -25,7 +25,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <span class="h3">{{ config('app.name', 'Laravel') }}</span>
@@ -102,7 +102,7 @@
             </div>
         </nav>
 
-        <main class="py-4 bg-white">
+        <main class="py-4">
             @yield('content')
         </main>
        <flash message="{{ session('flash') }}"></flash>

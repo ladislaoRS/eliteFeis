@@ -6,8 +6,8 @@
 <post :data="{{ $post }}" :initial-replies-count="{{ $post->replies_count }}" inline-template v-cloak>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card mb-3 border-0" id="post">
+        <div class="col-md-8 border-right">
+            <div class="card mb-3 border-0 bg-transparent" id="post">
                 <div class="card-body py-0 px-1">
                     <h1 class="card-title">{{ $post->title }}</h1>
                     <h6 class="card-subtitle mb-2 text-muted"> 
@@ -43,7 +43,7 @@
                     <div class="py-2">
                         <hr>
                     </div>
-                    <div class="bg-light p-3 my-2 rounded">
+                    <div class="p-0 my-2 rounded">
                         
                         <!--Replies section-->
                         @if($post->replies->isEmpty())
@@ -59,7 +59,7 @@
         </div>
         <div class="col-md-4">
             <aside class="blog-sidebar">
-                <div class="p-3 mb-3 bg-light rounded">
+                <div class="p-3 mb-3 bg-white rounded shadow-sm">
                 <h4 class="font-italic">About</h4>
                 <p class="mb-2">
                     This post was published {{ $post->created_at->diffForHumans() }} by 

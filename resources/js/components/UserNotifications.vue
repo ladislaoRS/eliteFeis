@@ -2,7 +2,7 @@
     <li class="nav-link dropdown" v-if="notifications.length">
         <span class="badge rounded-circle badge-danger" style="float:right; position:relative; margin-top:-2px; margin-left:-8px; font-size: 60%">{{ notifications.length }}</span>
         <a href="#" class="text-secondary" data-toggle="dropdown">
-            <span class="fas fa-bell"></span>
+            <span class="fas fa-bell fa-lg"></span>
         </a>
         
         <div class="dropdown-menu pt-0 border-0 pb-0 bg-transparent" style="min-width: 20rem;">
