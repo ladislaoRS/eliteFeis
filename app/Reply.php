@@ -43,11 +43,11 @@ class Reply extends Model
      */
     public function mentionedUsers()
     {
-        preg_match_all('/@([\w\-]+[\w ]+)/', $this->body, $matches);
-        $matches[1];
+        preg_match_all('/@([\w\-]+[\w\s]+)/', $this->body, $matches);
+        return $matches[1];
     }
     
-     /**
+    /**
      * Set the body attribute.
      *
      * @param string $body
@@ -55,7 +55,7 @@ class Reply extends Model
     public function setBodyAttribute($body)
     {
         $this->attributes['body'] = preg_replace(
-            '/@([\w\-]+[\w ]+)/',
+            '/@([\w\-]+[\w\s]+)/',
             '<a href="/profiles/$1">$0</a>',
             $body
         );

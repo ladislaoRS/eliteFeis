@@ -38,8 +38,8 @@
         mounted() {
             $('#body').atwho({
                 at: "@",
-                suffix: ', ',
                 delay: 750,
+                suffix: ', ',
                 callbacks: {
                     remoteFilter: function(query, callback) {
                         $.getJSON("/api/users", {name: query}, function(usernames) {

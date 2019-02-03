@@ -66332,8 +66332,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {
         $('#body').atwho({
             at: "@",
-            suffix: ', ',
             delay: 750,
+            suffix: ', ',
             callbacks: {
                 remoteFilter: function remoteFilter(query, callback) {
                     $.getJSON("/api/users", { name: query }, function (usernames) {
