@@ -51,6 +51,7 @@ class PostsController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'subtitle' => 'required',
             'body' => 'required',
             'tag_id' => 'required|exists:tags,id'
         ]);
@@ -59,6 +60,7 @@ class PostsController extends Controller
             'user_id' => auth()->id(),
             'tag_id' => $request->input('tag_id'),
             'title' => $request->input('title'),
+            'subtitle' => $request->input('subtitle'),
             'body'  => $request->input('body')
         ]);
         return redirect($post->path())->with('flash', 'Your post have been published');
