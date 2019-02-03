@@ -3,11 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8 border-right">
+        <div class="col-md-8">
             <div class="card border-0 bg-transparent">
                 <div class="card-body pt-0 px-1">
                         @forelse($posts as $post)
-                            <div class="card border-0 mb-2 bg-transparent" id="posts">
+                            <div class="card border-0 mb-2 bg-white p-4 rounded shadow-sm" id="posts">
                                 <div class="card-body py-0 px-0">
                                     <h6 class="text-uppercase mb-0"><a href="/posts/{{ $post->tag->slug }}" class="text-muted">{{$post->tag->name}}</a></h6>
                                     <h4 class="card-title post-index"><a href="{{ $post->path() }}">
@@ -23,7 +23,11 @@
                                         {{ $post->created_at->toFormattedDateString() }} by
                                         <a href="/profiles/{{ $post->creator->name }}">{{ $post->creator->name }}</a>
                                     </h6>
-                                    <p class="card-text">{{ substr($post->body, 0, 150) }} <a class="btn btn-link pl-0"href="{{ $post->path() }}">...more </a></p>
+                                    <p class="card-text pr-5">{{ $post->subtitle }}</p>
+                                    <div class="pb-2">
+                                        <a class="btn btn-link pl-0"href="{{ $post->path() }}">Read more... </a>
+                                    </div>
+                                    <hr class="my-2">
                                     <a href="{{ $post->path() }}" class="card-link">
                                         <span class=""><i class="far fa-comment"></i></span>
                                         <span class="">{{ $post->replies_count }}</span>
@@ -34,7 +38,7 @@
                                 </div>
                             </div>
                             <!--<hr>-->
-                            {!! ($post === $posts->last() ? "" : "<hr />") !!}
+                            <!--{!! ($post === $posts->last() ? "" : "<hr />") !!}-->
                         @empty
                             <h5 class="text-center mt-4 pt-4">No posts have been published yet, <a href="/posts/create">write</a> your first post!</h5>
                             <hr>
@@ -58,9 +62,9 @@
                 <div class="p-4 bg-white shadow-sm rounded">
                     <h4 class="">Popular on FeisElite</h4>
                     <hr>
-                    <ul class="list-unstyled" id="popular">
+                    <ul class="list-unstyled mb-0" id="popular">
                          @foreach($popularity as $popular)
-                        <li class="media pb-3">
+                        <li class="media pb-4">
                             <h2 class="mr-3 align-self-center text-muted"></h2>
                             <div class="media-body">
                                 <h5 class="mt-0 mb-1"><a href="{{ $popular->path() }}">{{ substr($popular->title, 0, 60) }}...</a></h5>
