@@ -55,7 +55,7 @@
                 </a>
                 <div class="pb-4"></div>
                 <div class="p-3 mb-3 bg-white shadow-sm rounded">
-                    <h4 class="font-italic">Bookmarked</h4>
+                    <h4 class="font-italic">Trending Posts</h4>
                     <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
                 </div>
 

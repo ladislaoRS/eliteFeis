@@ -22,6 +22,7 @@ Vue.component('paginator', require('./components/Paginator.vue'));
 Vue.component('post', require('./components/Post.vue'));
 Vue.component('subscribe-button', require('./components/SubscribeButton.vue'));
 Vue.component('user-notifications', require('./components/UserNotifications.vue'));
+Vue.component('avatar-form', require('./components/AvatarForm.vue'));
 
 // const files = require.context('./', true, /\.vue$/i)
 

@@ -9,14 +9,17 @@
         <div class="col-md-8 border-right">
             <div class="card mb-3 border-0 bg-transparent" id="post">
                 <div class="card-body py-0 px-1">
-                    <h6 class="card-subtitle mb-1 text-muted"> 
-                        {{ $post->created_at->toFormattedDateString() }} by
-                        <a href="/profiles/{{ $post->creator->name }}">{{ $post->creator->name }}</a>
-                    </h6>
                     <h1 class="card-title">{{ $post->title }}</h1>
-                    <h4 class="card-title text-muted py-3">{{ $post->subtitle }}</h4>
-                    
-                    <div class="mb-4"> </div>
+                    <h4 class="card-title text-muted py-2">{{ $post->subtitle }}</h4>
+                    <div class="media">
+                        <img src="{{ $post->creator->avatar_path }}" class="mr-3 rounded-circle" alt="{{ $post->creator->name }}" width="50" height="50">
+                        <div class="media-body">
+                            <a href="/profiles/{{ $post->creator->name }}">{{ $post->creator->name }}</a>
+                            <a class="btn btn-outline-success py-0 btn-sm mx-2" href="#">Follow</a>
+                            <h6 class="card-subtitle my-1 text-muted">{{ $post->created_at->toFormattedDateString() }}</h6>
+                        </div>
+                    </div>
+                     <div class="mb-5"> </div>
                     
                     <div v-if="editing">
                         <div class="form-group">

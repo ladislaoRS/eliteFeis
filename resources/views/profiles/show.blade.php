@@ -6,8 +6,7 @@
         <div class="col-md-8">
             <div class="card mb-3 border-0 bg-transparent">
                 <div class="card-body py-0 px-1">
-                    <span class="h1">{{ $profileUser->name }}</span>
-                    <br>
+                    <avatar-form :user="{{ $profileUser }}"></avatar-form>
                     <span class="h6 text-muted text-uppercase">Writer | {{ $profileUser->created_at->toFormattedDateString() }}</span>
                     <br>
                     <a class="small" href="/profiles/{{ $profileUser->name }}/activity">Activity</a>

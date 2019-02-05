@@ -2,7 +2,7 @@
     <div :id="'reply-'+id" class="card my-4 border-0 shadow-sm">
         <div class="card-body">
             <div class="media text-muted">
-                <img class="mr-2 rounded-circle" src="https://images.unsplash.com/photo-1544501616-6c71ff5438ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80https://images.unsplash.com/photo-1514626585111-9aa86183ac98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="Profile" width="32" height="32">
+                <img class="mr-2 rounded-circle" :src="data.owner.avatar_path" alt="Profile" width="35" height="35">
                 <div class="media-body">
                     <h6 class="mt-0"><a :href="'/profiles/' + data.owner.name" v-text="'@' + data.owner.name"><span>@</span></a>
                     <span class="d-block text-gray-dark pt-1" v-text="ago"></span>
@@ -10,11 +10,13 @@
                 </div>
             </div>
             <div v-if="editing">
-                <div class="form-group">
-                    <textarea class="form-control mb-2" rows="4" v-model="body"></textarea>
-                    <button @click="update" class="btn btn-outline-primary btn-sm">Update</button>
-                    <button @click="editing = false" class="btn btn-outline-secondary btn-sm" title="Cancel">Cancel</button>
-                </div>
+                <form @submit.prevent="update">
+                    <div class="form-group">
+                        <textarea class="form-control mb-2" rows="4" v-model="body" required></textarea>
+                    </div>
+                    <button class="btn btn-outline-primary btn-sm">Update</button>
+                    <button @click="editing = false" type="button" class="btn btn-outline-secondary btn-sm" title="Cancel">Cancel</button>
+                </form>
             </div>
             <div v-else v-html="body" style="font-size: .9rem"></div>
          

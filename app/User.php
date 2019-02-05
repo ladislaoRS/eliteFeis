@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'avatar_path',
     ];
 
     /**
@@ -70,5 +70,16 @@ class User extends Authenticatable
     public function visitedPostCacheKey($post)
     {
         return sprintf("users.%s.visits.%s", $this->id, $post->id);
+    }
+    
+    /**
+     * Get the path to the user's avatar.
+     *
+     * @param  string $avatar
+     * @return string
+     */
+    public function getAvatarPathAttribute($avatar)
+    {
+        return asset($avatar ?: 'images/avatars/default.png');
     }
 }
