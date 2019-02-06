@@ -7,7 +7,7 @@
             <div class="card border-0 bg-transparent">
                 <div class="card-body pt-0 px-1">
                         @forelse($posts as $post)
-                            <div class="card border-0 mb-2 bg-white p-4 rounded shadow-sm" id="posts">
+                            <div class="card border-0 mb-3 bg-white p-3 rounded shadow-sm" id="posts">
                                 <div class="card-body py-0 px-0">
                                     <h6 class="text-uppercase mb-0"><a href="/posts/{{ $post->tag->slug }}" class="text-muted">{{$post->tag->name}}</a></h6>
                                     <h4 class="card-title post-index"><a href="{{ $post->path() }}">
@@ -50,7 +50,7 @@
         </div>
         <div class="col-md-4">
             <aside class="blog-sidebar">
-                <a href="/posts/create" class="btn btn-primary btn-lg btn-block shadow">
+                <a href="/posts/create" class="btn btn-success btn-lg btn-block shadow">
                     Write a New Post
                 </a>
                 <div class="pb-4"></div>

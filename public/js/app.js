@@ -68073,7 +68073,7 @@ var render = function() {
                       expression: "body"
                     }
                   ],
-                  staticClass: "form-control mb-3",
+                  staticClass: "form-control mb-4 border-0 shadow-sm",
                   attrs: {
                     name: "body",
                     id: "body",

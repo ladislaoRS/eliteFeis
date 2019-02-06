@@ -6,8 +6,8 @@
 <post :data="{{ $post }}" :initial-replies-count="{{ $post->replies_count }}" inline-template v-cloak>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8 border-right">
-            <div class="card mb-3 border-0 bg-transparent" id="post">
+        <div class="col-md-9">
+            <div class="card mb-4 border-0 bg-white shadow-sm p-3" id="post">
                 <div class="card-body py-0 px-1">
                     <h1 class="card-title">{{ $post->title }}</h1>
                     <h4 class="card-title text-muted py-2">{{ $post->subtitle }}</h4>
@@ -43,25 +43,19 @@
                             </button>
                         </div>
                     @endcan
-                    
-                    <div class="py-2">
-                        <hr>
-                    </div>
-                    <div class="p-0 my-2 rounded">
-                        
-                        <!--Replies section-->
-                        @if($post->replies->isEmpty())
-                            <div class="pb-3 text-center text-muted">This post has no replies yet.</div>
-                        @else
-                            <div class="">Responses</div>
-                        @endif
-                        
-                       <replies @added="repliesCount++" @removed="repliesCount--"></replies>
-                    </div>
                 </div>
             </div>
+            <div class="card p-0 border-0 bg-transparent">
+                    <!--Replies section-->
+                    @if($post->replies->isEmpty())
+                        <div class="pb-3 text-center text-muted">This post has no replies yet.</div>
+                    @else
+                        <div class="mt-3">Responses</div>
+                    @endif
+                   <replies @added="repliesCount++" @removed="repliesCount--"></replies>
+            </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <aside class="blog-sidebar">
                 <div class="p-3 mb-3 bg-white rounded shadow-sm">
                 <h4 class="font-italic">About</h4>

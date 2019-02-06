@@ -5,7 +5,7 @@
             <div class="form-group">
                 <textarea name="body"
                           id="body"
-                          class="form-control mb-3"
+                          class="form-control mb-4 border-0 shadow-sm"
                           placeholder="Have something to say?"
                           rows="5"
                           v-model="body"
