@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tag;
 use App\Post;
+use App\Trending;
 use App\Filters\PostFilters;
 use Illuminate\Http\Request;
 
@@ -21,13 +22,13 @@ class PostsController extends Controller
      * @param \App\Trending $trending
      * @return \Illuminate\Http\Response
      */
-    public function index(Tag $tag, PostFilters $filters)
+    public function index(Tag $tag, PostFilters $filters, Trending $trending)
     {
         $posts = $this->getPosts($tag, $filters);
 
         return view('posts.index', [
             'posts' => $posts,
-            // 'tag' => $tag
+            'trending' => $trending->get()
         ]);
     }
 
@@ -72,11 +73,13 @@ class PostsController extends Controller
      * @param  \App\Post  $Post
      * @return \Illuminate\Http\Response
      */
-    public function show($tagId, Post $post)
+    public function show($tagId, Post $post, Trending $trending)
     {
         if (auth()->check()) {
             auth()->user()->read($post);
         }
+        
+        $trending->push($post);
         
         return view('posts.show', compact('post'));
     }
@@ -125,7 +128,7 @@ class PostsController extends Controller
     }
     
     /**
-     * Fetch all relevant threads.
+     * Fetch all relevant posts.
      *
      * @param Channel       $tag
      * @param ThreadFilters $filters

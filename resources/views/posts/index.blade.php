@@ -54,29 +54,43 @@
                     Write a New Post
                 </a>
                 <div class="pb-4"></div>
-                <div class="p-3 mb-3 bg-white shadow-sm rounded">
-                    <h4 class="font-italic">Trending Posts</h4>
-                    <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-                </div>
-
+                @if (count($trending))
+                    <div class="p-3 mb-3 bg-white shadow-sm rounded">
+                        <h4>Trending Posts</h4>
+                        <hr>
+                        <ul class="list-unstyled mb-0" id="popular">
+                             @foreach($trending as $trend)
+                            <li class="media pb-4">
+                                <h2 class="mr-3 align-self-center text-muted"></h2>
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"><a href="{{ url($trend->path) }}">{{ substr($trend->title, 0, 60) }}...</a></h5>
+                                     <span style="font-size: .95rem">
+                                        <a href="/profiles/{{ $trend->creator }}" style="color: #212529">{{ $trend->creator }}</a>
+                                     </span>
+                                </div>
+                             </li>
+                             @endforeach
+                         </ul>
+                    </div>
+                @endif
                 <div class="p-4 bg-white shadow-sm rounded">
-                    <h4 class="">Popular on FeisElite</h4>
+                    <h4 class="">Popular Posts</h4>
                     <hr>
                     <ul class="list-unstyled mb-0" id="popular">
                          @foreach($popularity as $popular)
-                        <li class="media pb-4">
-                            <h2 class="mr-3 align-self-center text-muted"></h2>
-                            <div class="media-body">
-                                <h5 class="mt-0 mb-1"><a href="{{ $popular->path() }}">{{ substr($popular->title, 0, 60) }}...</a></h5>
-                                 <span style="font-size: .95rem">
-                                    <a href="/profiles/{{ $popular->creator->name }}" style="color: #212529">{{ $popular->creator->name }}</a>
-                                 </span>
-                                 <br> 
-                                 <span class="text-muted" style="font-size: .9rem">{{ $popular->created_at->toFormattedDateString() }}</span>
-                            </div>
-                         </li>
+                            <li class="media pb-4">
+                                <h2 class="mr-3 align-self-center text-muted"></h2>
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"><a href="{{ $popular->path() }}">{{ substr($popular->title, 0, 60) }}...</a></h5>
+                                     <span style="font-size: .95rem">
+                                        <a href="/profiles/{{ $popular->creator->name }}" style="color: #212529">{{ $popular->creator->name }}</a>
+                                     </span>
+                                     <br> 
+                                     <span class="text-muted" style="font-size: .9rem">{{ $popular->created_at->toFormattedDateString() }}</span>
+                                </div>
+                             </li>
+                         @endforeach
                      </ul>
-                     @endforeach
                     <hr>
                     <ul class="list-inline text-center">
                         <li class="list-inline-item"><a href="#">About</a></li>
