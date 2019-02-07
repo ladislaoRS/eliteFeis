@@ -9,5 +9,6 @@ $factory->define(App\Post::class, function (Faker $faker) {
         'title' => $faker->sentence,
         'subtitle' => $faker->sentence(15),
         'body' => $faker->paragraph(rand(10, 30), true),
+        'visits' => 0
     ];
 });

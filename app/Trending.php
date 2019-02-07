@@ -23,7 +23,7 @@ class Trending
             'title' => $post->title,
             'path' => $post->path(),
             'creator' => $post->creator->name,
-            'created_at' => $post->created_at
+            'tag_slug' => $post->tag->slug
         ]));
     }
     /**

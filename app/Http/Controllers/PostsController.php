@@ -80,6 +80,7 @@ class PostsController extends Controller
         }
         
         $trending->push($post);
+        $post->increment('visits');
         
         return view('posts.show', compact('post'));
     }

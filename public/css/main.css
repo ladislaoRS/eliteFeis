@@ -26,11 +26,11 @@ body {
     border-radius: 0.3rem;
 }
 
-.media > h2::before {
+/*.media > h2::before {*/
   /* Increment "my-sec-counter" by 1 */
-  counter-increment: my-sec-counter;
-  content: "0" counter(my-sec-counter);
-}
+/*  counter-increment: my-sec-counter;*/
+/*  content: "0" counter(my-sec-counter);*/
+/*}*/
 
 .media a {
  text-decoration: none;

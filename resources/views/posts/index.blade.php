@@ -19,22 +19,23 @@
                                             {{ $post->title }}
                                         @endif
                                     </a></h4>
-                                    <h6 class="card-subtitle mb-3 text-muted"> 
+                                    <h6 class="card-subtitle mb-3 text-muted post-index"> 
                                         {{ $post->created_at->toFormattedDateString() }} by
-                                        <a href="/profiles/{{ $post->creator->name }}">{{ $post->creator->name }}</a>
+                                        <a href="/profiles/{{ $post->creator->name }}"><u>{{ $post->creator->name }}</u></a>
                                     </h6>
-                                    <p class="card-text pr-5">{{ $post->subtitle }}</p>
-                                    <div class="pb-2">
-                                        <a class="btn btn-link pl-0"href="{{ $post->path() }}">Read more... </a>
+                                    <p class="card-text pt-3 mb-0 pr-5">{{ $post->subtitle }}</p>
+                                    <div class="">
+                                        <a class="btn btn-link pl-0" href="{{ $post->path() }}"><span class="text-success"> Read more...</span></a>
                                     </div>
                                     <hr class="my-2">
-                                    <a href="{{ $post->path() }}" class="card-link">
-                                        <span class=""><i class="far fa-comment"></i></span>
-                                        <span class="">{{ $post->replies_count }}</span>
+                                    <a href="{{ $post->path() }}" class="card-link text-muted">
+                                        <span class=""><i class="far fa-comment fa-sm"></i></span>
+                                        <small>{{ $post->replies_count }}</small>
                                     </a>
-                                    <a href="#" class="card-link">
-                                        <span class=""><i class="far fa-eye"></i></span>
-                                    </a>
+                                    <span class="card-link text-muted">
+                                        <span class=""><i class="far fa-eye fa-sm"></i></span>
+                                        <small>{{ $post->visits }}</small>
+                                    </span>
                                 </div>
                             </div>
                             <!--<hr>-->
@@ -55,44 +56,53 @@
                 </a>
                 <div class="pb-4"></div>
                 @if (count($trending))
+                
+                <h5 class="py-2 font-weight-bold">Most Read </h5>
                     <div class="p-3 mb-3 bg-white shadow-sm rounded">
-                        <h4>Trending Posts</h4>
-                        <hr>
-                        <ul class="list-unstyled mb-0" id="popular">
+                        <ul class="list-unstyled mb-0">
                              @foreach($trending as $trend)
-                            <li class="media pb-4">
-                                <h2 class="mr-3 align-self-center text-muted"></h2>
+                             
+                            <li class="media pb-0">
+                                <h3 class="mr-3 align-self-center text-muted">0{{ $loop->iteration }}</h3>
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1"><a href="{{ url($trend->path) }}">{{ substr($trend->title, 0, 60) }}...</a></h5>
-                                     <span style="font-size: .95rem">
-                                        <a href="/profiles/{{ $trend->creator }}" style="color: #212529">{{ $trend->creator }}</a>
+                                    <span class="text-muted text-uppercase" style="font-size: .8rem">
+                                        {{ $trend->tag_slug }}
                                      </span>
+                                    <p class="my-0 post-index"><a href="{{ url($trend->path) }}">{{ $trend->title }}</a></p>
+                                     <span style="font-size: .8rem">
+                                        <a href="/profiles/{{ $trend->creator }}" style="color: #212529"><u>by {{ $trend->creator }}</u></a>
+                                     </span>
+                                     {!! ($loop->last ? "" : "<hr class='my-2'>") !!}
                                 </div>
                              </li>
                              @endforeach
                          </ul>
                     </div>
                 @endif
-                <div class="p-4 bg-white shadow-sm rounded">
-                    <h4 class="">Popular Posts</h4>
-                    <hr>
+                
+                <h5 class="pt-4 pb-2 font-weight-bold ">Popular on Elitefeis </h5>
+                <div class="p-3 bg-white shadow-sm rounded">
                     <ul class="list-unstyled mb-0" id="popular">
                          @foreach($popularity as $popular)
-                            <li class="media pb-4">
-                                <h2 class="mr-3 align-self-center text-muted"></h2>
+                            <li class="media pb-2">
+                                <!--<h2 class="mr-3 align-self-center text-muted">0{{ $loop->iteration }}</h2>-->
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1"><a href="{{ $popular->path() }}">{{ substr($popular->title, 0, 60) }}...</a></h5>
-                                     <span style="font-size: .95rem">
-                                        <a href="/profiles/{{ $popular->creator->name }}" style="color: #212529">{{ $popular->creator->name }}</a>
+                                    <span class="text-muted text-uppercase" style="font-size: .8rem">
+                                        {{ $popular->tag->slug }}
+                                     </span>
+                                    <p class="my-0 post-index"><a href="{{ $popular->path() }}">{{ $popular->title }}</a></p>
+                                     <span style="font-size: .8rem">
+                                        <a href="/profiles/{{ $popular->creator->name }}" style="color: #212529"><u>{{ $popular->creator->name }}</u></a>
                                      </span>
                                      <br> 
                                      <span class="text-muted" style="font-size: .9rem">{{ $popular->created_at->toFormattedDateString() }}</span>
                                 </div>
                              </li>
+                             {!! ($popular === $popularity->last() ? "" : "<hr class='my-1'>") !!}
                          @endforeach
                      </ul>
                     <hr>
-                    <ul class="list-inline text-center">
+                    <ul class="list-inline text-center post-index">
                         <li class="list-inline-item"><a href="#">About</a></li>
                         <li class="list-inline-item"><a href="#">Contact</a></li>
                         <li class="list-inline-item"><a href="#">Help</a></li>
