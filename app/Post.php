@@ -70,11 +70,11 @@ class Post extends Model
     
     public function path()
     {
-         return "/posts/{$this->tag->slug}/{$this->id}";
+         return "/posts/{$this->tag->slug}/{$this->slug}";
     }
     
     /**
-     * Apply all relevant thread filters.
+     * Apply all relevant post filters.
      *
      * @param  Builder       $query
      * @param  ThreadFilters $filters
@@ -86,7 +86,7 @@ class Post extends Model
     }
     
     /**
-     * Subscribe a user to the current thread.
+     * Subscribe a user to the current post.
      *
      * @param int|null $userId
      * @param  int|null $userId
@@ -101,7 +101,7 @@ class Post extends Model
         return $this;
     }
     /**
-     * Unsubscribe a user from the current thread.
+     * Unsubscribe a user from the current post.
      *
      * @param int|null $userId
      */
@@ -112,7 +112,7 @@ class Post extends Model
             ->delete();
     }
     /**
-     * A thread can have many subscriptions.
+     * A post can have many subscriptions.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -121,7 +121,7 @@ class Post extends Model
         return $this->hasMany(PostSubscription::class);
     }
     /**
-     * Determine if the current user is subscribed to the thread.
+     * Determine if the current user is subscribed to the post.
      *
      * @return boolean
      */
@@ -136,7 +136,7 @@ class Post extends Model
     }
     
     /**
-     * Determine if the thread has been updated since the user last read it.
+     * Determine if the post has been updated since the user last read it.
      *
      * @param  User $user
      * @return bool
@@ -145,6 +145,44 @@ class Post extends Model
     {
         $key = $user->visitedPostCacheKey($this);
         return $this->updated_at > cache($key);
+    }
+    
+     /**
+     * Get the route key name.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+    /**
+     * Set the proper slug attribute.
+     *
+     * @param string $value
+     */
+    public function setSlugAttribute($value)
+    {
+        if (static::whereSlug($slug = str_slug($value))->exists()) {
+            $slug = $this->incrementSlug($slug);
+        }
+        $this->attributes['slug'] = $slug;
+    }
+    /**
+     * Increment a slug's suffix.
+     *
+     * @param  string $slug
+     * @return string
+     */
+    protected function incrementSlug($slug)
+    {
+        $max = static::whereTitle($this->title)->latest('id')->value('slug');
+        if (is_numeric($max[-1])) {
+            return preg_replace_callback('/(\d+)$/', function ($matches) {
+                return $matches[1] + 1;
+            }, $max);
+        }
+        return "{$slug}-2";
     }
     
 }

@@ -61,6 +61,7 @@ class PostsController extends Controller
             'user_id' => auth()->id(),
             'tag_id' => $request->input('tag_id'),
             'title' => $request->input('title'),
+            'slug' => request('title'),
             'subtitle' => $request->input('subtitle'),
             'body'  => $request->input('body')
         ]);
