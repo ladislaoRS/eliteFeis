@@ -22,7 +22,7 @@ Route::get('/', function () {
 |--------------------------------------------------------------------------
 |
 */
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +32,7 @@ Auth::routes();
 */
 // Route::get('/home', 'HomeController@index');
 Route::get('posts', 'PostsController@index');
-Route::get('posts/create', 'PostsController@create');
+Route::get('posts/create', 'PostsController@create')->middleware('verified');
 Route::get('posts/{tag}/{post}', 'PostsController@show');
 Route::delete('posts/{tag}/{post}', 'PostsController@destroy');
 Route::post('posts', 'PostsController@store');
