@@ -20,7 +20,7 @@
         
         methods: {
             update () {
-                axios.patch('/posts/' + this.data.id, {
+                axios.patch('/posts/' + this.data.tag.slug + '/' + this.data.slug, {
                     body: this.body
                 });
                 this.editing = false;
@@ -29,9 +29,9 @@
             },
             
             destroy () {
-                axios.delete('/posts/' + this.data.tag+ "/" + this.data.id);
+                axios.delete('/posts/' + this.data.tag.slug + '/' + this.data.slug);
                 
-                window.location.href = "/posts";
+                window.location.href = "/";
                 
                 $(this.$el).fadeOut(300, () => {
                    flash('Post has been deleted!'); 

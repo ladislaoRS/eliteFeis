@@ -12,7 +12,6 @@
 */
 
 Route::get('/', function () {
-    //return view('welcome');
     return redirect('/posts');
 });
 
@@ -26,18 +25,17 @@ Auth::routes(['verify' => true]);
 
 /*
 |--------------------------------------------------------------------------
-| Auth Routes
+| Posts Routes
 |--------------------------------------------------------------------------
 |
 */
-// Route::get('/home', 'HomeController@index');
 Route::get('posts', 'PostsController@index');
 Route::get('posts/create', 'PostsController@create')->middleware('verified');
 Route::get('posts/{tag}/{post}', 'PostsController@show');
 Route::delete('posts/{tag}/{post}', 'PostsController@destroy');
 Route::post('posts', 'PostsController@store');
 Route::get('posts/{tag}', 'PostsController@index');
-Route::patch('posts/{post}', 'PostsController@update');
+Route::patch('posts/{tag}/{post}', 'PostsController@update');
 
 /*
 |--------------------------------------------------------------------------

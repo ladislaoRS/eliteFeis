@@ -110,12 +110,14 @@ class PostsController extends Controller
      * @param  \App\Post  $Post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $tagId, Post $post)
     {
         $this->authorize('update', $post);
         $post->update([
             'body' => $request->input('body')
         ]);
+        
+        return $post;
     }
 
     /**
