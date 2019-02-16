@@ -54,10 +54,10 @@
                 <a href="/posts/create" class="btn btn-success btn-lg btn-block shadow">
                     Write a New Post
                 </a>
-                <div class="pb-4"></div>
+                <!--<div class="pb-4"></div>-->
                 @if (count($trending))
                 
-                <h5 class="py-2 font-weight-bold">Most Read </h5>
+                <h5 class="mt-5 mb-3 font-weight-bold pl-2 border-left border-dark" style="border-width: 5px !important;">Most Read </h5>
                     <div class="p-3 mb-3 bg-white shadow-sm rounded">
                         <ul class="list-unstyled mb-0">
                              @foreach($trending as $trend)
@@ -80,7 +80,7 @@
                     </div>
                 @endif
                 
-                <h5 class="pt-4 pb-2 font-weight-bold ">Popular on Elitefeis </h5>
+                <h5 class="mt-5 mb-3 font-weight-bold pl-2 border-left border-dark" style="border-width: 5px !important;">Popular on Elitefeis </h5>
                 <div class="p-3 bg-white shadow-sm rounded">
                     <ul class="list-unstyled mb-0" id="popular">
                          @foreach($popularity as $popular)

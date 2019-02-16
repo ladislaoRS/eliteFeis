@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Tag;
 use App\Post;
 use App\Trending;
+use App\Rules\Recaptcha;
 use App\Filters\PostFilters;
 use Illuminate\Http\Request;
 
@@ -48,13 +49,14 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Recaptcha $recaptcha)
     {
         $request->validate([
             'title' => 'required',
             'subtitle' => 'required',
             'body' => 'required',
-            'tag_id' => 'required|exists:tags,id'
+            'tag_id' => 'required|exists:tags,id',
+            'g-recaptcha-response' => ['required', $recaptcha]
         ]);
         
         $post = Post::create([
