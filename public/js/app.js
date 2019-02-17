@@ -68375,6 +68375,8 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
 //
 //
 //
@@ -68400,6 +68402,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -68416,6 +68428,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         markAsRead: function markAsRead(notification) {
             axios.delete('/profiles/' + window.App.user.name + '/notifications/' + notification.id);
+        },
+        ago: function ago(notification) {
+            return __WEBPACK_IMPORTED_MODULE_0_moment___default()(notification.created_at).fromNow();
         }
     }
 });
@@ -68450,38 +68465,47 @@ var render = function() {
         _c(
           "div",
           {
-            staticClass: "dropdown-menu pt-0 border-0 pb-0 bg-transparent",
+            staticClass: "dropdown-menu pt-0 border pb-0 bg-white",
             staticStyle: { "min-width": "20rem" }
           },
-          _vm._l(_vm.notifications, function(notification) {
-            return _c(
-              "div",
-              {
-                staticClass:
-                  "p-3 mb-2 shadow-sm border border-light rounded bg-white",
-                attrs: { role: "alert" }
-              },
-              [
-                _c("a", {
-                  staticClass: "text-info",
-                  attrs: { href: notification.data.link },
-                  domProps: { textContent: _vm._s(notification.data.message) },
-                  on: {
-                    click: function($event) {
-                      _vm.markAsRead(notification)
-                    }
-                  }
-                })
-              ]
-            )
-          }),
-          0
+          [
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._l(_vm.notifications, function(notification) {
+              return _c(
+                "div",
+                { staticClass: "border-bottom", attrs: { role: "alert" } },
+                [
+                  _c("div", { staticClass: "toast-body pb-1" }, [
+                    _c("a", {
+                      staticClass: "text-info",
+                      attrs: { href: notification.data.link },
+                      domProps: {
+                        textContent: _vm._s(notification.data.message)
+                      },
+                      on: {
+                        click: function($event) {
+                          _vm.markAsRead(notification)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "text-muted text-right",
+                      domProps: { textContent: _vm._s(_vm.ago(notification)) }
+                    })
+                  ])
+                ]
+              )
+            })
+          ],
+          2
         )
       ])
     : _c("li", { staticClass: "nav-link dropdown" }, [
         _c("span", { staticClass: "badge rounded-circle badge-danger" }),
         _vm._v(" "),
-        _vm._m(1)
+        _vm._m(2)
       ])
 }
 var staticRenderFns = [
@@ -68497,6 +68521,27 @@ var staticRenderFns = [
       },
       [_c("span", { staticClass: "fas fa-bell fa-lg" })]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "py-2 toast-header bg-light text-dark" }, [
+      _c("strong", { staticClass: "mr-auto" }, [_vm._v("NOTIFICATIONS")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "ml-2 mb-1 close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "toast",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
   },
   function() {
     var _vm = this
