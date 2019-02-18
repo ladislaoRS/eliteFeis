@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="/css/vendor/jquery.atwho.css">
 @endsection
 @section('content')
+@include('layouts.nav')
 <div class="bg-light pt-3">
     <post :data="{{ $post }}" :initial-replies-count="{{ $post->replies_count }}" inline-template v-cloak>
     <div class="container mt-3">

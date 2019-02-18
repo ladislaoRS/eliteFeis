@@ -20,7 +20,7 @@
     </head>
     <body class="bg-white">
         <div id="app">
-            <header class="py-4">
+            <header class="py-3 border-bottom">
                 <div class="container">
                     <div class="row flex-nowrap justify-content-between align-items-center">
                         <div class="col-4 pt-1">

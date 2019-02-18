@@ -1,24 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row bg-white shadow-sm">
-    <div class="container">
-        <div class="nav-scroller my-2">
-            <div class="nav d-flex px-3 py-0 justify-content-start">
-                <a class="pr-3 text-success text-uppercase text-decoration-none" href="/posts">All</a>
-                <a class="pr-3 text-muted text-uppercase text-decoration-none" href="/posts?popular=1">Popular</a>
-                @foreach($tags as $tag)
-                    <a class="pr-3 text-muted text-uppercase text-decoration-none" href="/posts/{{ $tag->slug }}">{{ $tag->name }} </a>
-                @endforeach
-              <div class="ml-auto">
-                  @if(Auth::check())
-                      <a class="px-1 text-dark text-uppercase text-decoration-none" href="/posts?by={{ Auth::user()->name }}">My Posts</a>
-                  @endif
-              </div>
-            </div>
-        </div>
-    </div>
-</div>
+@include('layouts.nav')
 <div class="bg-light">
     <div class="container pt-4">
     <div class="row justify-content-center">
