@@ -7,7 +7,7 @@
         
         <div class="dropdown-menu pt-0 border pb-0 bg-white" style="min-width: 20rem;">
             <div class="py-2 toast-header bg-light text-dark">
-                    <strong class="mr-auto">NOTIFICATIONS</strong>
+                    <strong class="mr-auto">Notification</strong>
                     <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>

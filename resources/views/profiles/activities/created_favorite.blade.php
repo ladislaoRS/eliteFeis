@@ -1,4 +1,4 @@
-<div class="card mb-3 shadow-sm">
+<div class="card mb-3 border-0 shadow-sm">
     <div class="card-body">
         <p class="card-title text-muted"> {{ $profileUser->name }} liked a reply
             <a href="{{ $activity->subject->favorited->path() }}">

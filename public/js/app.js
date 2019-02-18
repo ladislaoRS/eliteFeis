@@ -68527,7 +68527,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "py-2 toast-header bg-light text-dark" }, [
-      _c("strong", { staticClass: "mr-auto" }, [_vm._v("NOTIFICATIONS")]),
+      _c("strong", { staticClass: "mr-auto" }, [_vm._v("Notification")]),
       _vm._v(" "),
       _c(
         "button",

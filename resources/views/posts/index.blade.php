@@ -1,7 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="row bg-white shadow-sm">
+    <div class="container">
+        <div class="nav-scroller my-2">
+            <div class="nav d-flex px-3 py-0 justify-content-start">
+                <a class="pr-3 text-success text-uppercase text-decoration-none" href="/posts">All</a>
+                <a class="pr-3 text-muted text-uppercase text-decoration-none" href="/posts?popular=1">Popular</a>
+                @foreach($tags as $tag)
+                    <a class="pr-3 text-muted text-uppercase text-decoration-none" href="/posts/{{ $tag->slug }}">{{ $tag->name }}
+                    
+                @endforeach
+              <div class="ml-auto">
+                  @if(Auth::check())
+                      <a class="px-1 text-dark text-uppercase text-decoration-none" href="/posts?by={{ Auth::user()->name }}">My Posts</a>
+                  @endif
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg-light">
+    <div class="container pt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card border-0 bg-transparent">
@@ -9,7 +29,7 @@
                         @forelse($posts as $post)
                             <div class="card border-0 mb-3 bg-white p-3 rounded shadow-sm" id="posts">
                                 <div class="card-body py-0 px-0">
-                                    <h6 class="text-uppercase mb-0"><a href="/posts/{{ $post->tag->slug }}" class="text-muted">{{$post->tag->name}}</a></h6>
+                                    <h6 class="text-uppercase mb-0"><a href="/posts/{{ $post->tag->slug }}" class="text-success">{{$post->tag->name}}</a></h6>
                                     <h4 class="card-title post-index"><a href="{{ $post->path() }}">
                                         @if (Auth::user() && !$post->hasUpdatesFor(Auth::user()))
                                             <span class="text-muted">
@@ -23,7 +43,7 @@
                                         {{ $post->created_at->toFormattedDateString() }} by
                                         <a href="/profiles/{{ $post->creator->name }}"><u>{{ $post->creator->name }}</u></a>
                                     </h6>
-                                    <p class="card-text pt-3 mb-0 pr-5">{{ $post->subtitle }}</p>
+                                    <p class="card-text text-muted pt-3 mb-0">{{ $post->subtitle }}</p>
                                     <div class="">
                                         <a class="btn btn-link pl-0" href="{{ $post->path() }}"><span class="text-success"> Read more...</span></a>
                                     </div>
@@ -57,7 +77,7 @@
                 <!--<div class="pb-4"></div>-->
                 @if (count($trending))
                 
-                <h5 class="mt-5 mb-3 font-weight-bold pl-2 border-left border-dark" style="border-width: 5px !important;">Most Read </h5>
+                <h5 class="mt-5 mb-3 pl-2 border-left border-secondary text-secondary" style="border-width: 3px !important;">Most Read </h5>
                     <div class="p-3 mb-3 bg-white shadow-sm rounded">
                         <ul class="list-unstyled mb-0">
                              @foreach($trending as $trend)
@@ -69,10 +89,10 @@
                                         {{ $trend->tag_slug }}
                                      </span>
                                     <p class="my-0 post-index"><a href="{{ url($trend->path) }}">{{ $trend->title }}</a></p>
-                                     <span style="font-size: .8rem">
-                                        <a href="/profiles/{{ $trend->creator }}" style="color: #212529"><u>by {{ $trend->creator }}</u></a>
+                                     <span style="font-size: .8rem"> By 
+                                        <a href="/profiles/{{ $trend->creator }}" style="color: #212529"><u>{{ $trend->creator }}</u></a>
                                      </span>
-                                     {!! ($loop->last ? "" : "<hr class='my-2'>") !!}
+                                     {!! ($loop->last ? "" : "<hr class='my-3'>") !!}
                                 </div>
                              </li>
                              @endforeach
@@ -80,11 +100,11 @@
                     </div>
                 @endif
                 
-                <h5 class="mt-5 mb-3 font-weight-bold pl-2 border-left border-dark" style="border-width: 5px !important;">Popular on Elitefeis </h5>
-                <div class="p-3 bg-white shadow-sm rounded">
+                <h5 class="mt-5 mb-3 pl-2 border-left border-secondary text-secondary" style="border-width: 3px !important;">Popular on Elitefeis </h5>
+                <div class="p-3 mb-3 bg-white shadow-sm rounded">
                     <ul class="list-unstyled mb-0" id="popular">
                          @foreach($popularity as $popular)
-                            <li class="media pb-2">
+                            <li class="media py-3">
                                 <!--<h2 class="mr-3 align-self-center text-muted">0{{ $loop->iteration }}</h2>-->
                                 <div class="media-body">
                                     <span class="text-muted text-uppercase" style="font-size: .8rem">
@@ -93,9 +113,9 @@
                                     <p class="my-0 post-index"><a href="{{ $popular->path() }}">{{ $popular->title }}</a></p>
                                      <span style="font-size: .8rem">
                                         <a href="/profiles/{{ $popular->creator->name }}" style="color: #212529"><u>{{ $popular->creator->name }}</u></a>
-                                     </span>
+                                     </span><span class="text-muted" style="font-size: .8rem"> | {{ $popular->created_at->toFormattedDateString() }}</span>
                                      <br> 
-                                     <span class="text-muted" style="font-size: .9rem">{{ $popular->created_at->toFormattedDateString() }}</span>
+                                     
                                 </div>
                              </li>
                              {!! ($popular === $popularity->last() ? "" : "<hr class='my-1'>") !!}
@@ -112,4 +132,6 @@
         </div>
     </div>
 </div>
+</div>
+
 @endsection
