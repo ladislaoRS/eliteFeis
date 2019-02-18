@@ -8,8 +8,7 @@
                 <a class="pr-3 text-success text-uppercase text-decoration-none" href="/posts">All</a>
                 <a class="pr-3 text-muted text-uppercase text-decoration-none" href="/posts?popular=1">Popular</a>
                 @foreach($tags as $tag)
-                    <a class="pr-3 text-muted text-uppercase text-decoration-none" href="/posts/{{ $tag->slug }}">{{ $tag->name }}
-                    
+                    <a class="pr-3 text-muted text-uppercase text-decoration-none" href="/posts/{{ $tag->slug }}">{{ $tag->name }} </a>
                 @endforeach
               <div class="ml-auto">
                   @if(Auth::check())
