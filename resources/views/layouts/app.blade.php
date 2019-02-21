@@ -31,9 +31,10 @@
                         
                         <div class="col-4 d-flex justify-content-end align-items-center">
                             @if(Auth::check())
-                            <a class="text-muted mx-2" href="#">
-                                <span><i class="fas fa-search"></i></span>
-                            </a>
+                            <a href="/posts/create" class="mx-2 text-success"><i class="fas fa-plus fa-sm"></i> New Story</a>
+                            <!--<a class="text-muted mx-2" href="#">-->
+                            <!--    <span><i class="fas fa-search"></i></span>-->
+                            <!--</a>-->
                             <user-notifications></user-notifications>
                             @endif
                             <!-- Authentication Links -->

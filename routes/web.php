@@ -32,6 +32,7 @@ Auth::routes(['verify' => true]);
 Route::get('posts', 'PostsController@index');
 Route::get('posts/create', 'PostsController@create')->middleware('verified');
 Route::get('posts/{tag}/{post}', 'PostsController@show');
+Route::get('posts/search', 'SearchController@show');
 Route::delete('posts/{tag}/{post}', 'PostsController@destroy');
 Route::post('posts', 'PostsController@store');
 Route::get('posts/{tag}', 'PostsController@index');

@@ -3,7 +3,7 @@
 @section('content')
 @include('layouts.nav')
 <div class="bg-light">
-    <div class="container pt-4">
+    <div class="container pt-3">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card border-0 bg-transparent">
@@ -53,13 +53,31 @@
         </div>
         <div class="col-md-4">
             <aside class="blog-sidebar">
-                <a href="/posts/create" class="btn btn-success btn-lg btn-block shadow">
-                    Write a New Post
-                </a>
+                <div class="card border-0 bg-white shadow-sm">
+                    <div class="card-body">
+                        <form method="GET" action="/posts/search">
+                            <div class="form-row">
+                                <div class="col-md-10 pr-0">
+                                    <input class="form-control" type="text" name="q" placeholder="Search Elitefeis..." aria-label="Search"/>
+                                </div>
+                                <div class="col-md-2 pl-0">
+                                    <div class="input-group-append border-success">
+                                    <button class="btn btn-outline-success" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--<a href="/posts/create" class="mt-4 btn btn-success btn-lg btn-block shadow">-->
+                <!--    Write a New Post-->
+                <!--</a>-->
                 <!--<div class="pb-4"></div>-->
                 @if (count($trending))
                 
-                <h5 class="mt-5 mb-3 pl-2 border-left border-secondary text-secondary" style="border-width: 3px !important;">Most Read </h5>
+                <h5 class="mt-4 mb-3 pl-2 border-left border-secondary text-secondary" style="border-width: 3px !important;">Most Read </h5>
                     <div class="p-3 mb-3 bg-white shadow-sm rounded">
                         <ul class="list-unstyled mb-0">
                              @foreach($trending as $trend)

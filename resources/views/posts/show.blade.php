@@ -6,7 +6,7 @@
 @include('layouts.nav')
 <div class="bg-light pt-3">
     <post :data="{{ $post }}" :initial-replies-count="{{ $post->replies_count }}" inline-template v-cloak>
-    <div class="container mt-3">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-9">
                 <div class="card mb-4 border-0 bg-white shadow-sm p-3" id="post">

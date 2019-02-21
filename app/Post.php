@@ -7,10 +7,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use App\Events\PostReceivedNewReply;
+use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
-     use RecordsActivity;
+     use RecordsActivity, Searchable;
      
      /**
      * The attributes that aren't mass assignable.
