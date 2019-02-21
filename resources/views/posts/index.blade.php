@@ -56,27 +56,22 @@
                 <div class="card border-0 bg-white shadow-sm">
                     <div class="card-body">
                         <form method="GET" action="/posts/search">
-                            <div class="form-row">
-                                <div class="col-md-10 pr-0">
-                                    <input class="form-control" type="text" name="q" placeholder="Search Elitefeis..." aria-label="Search"/>
-                                </div>
-                                <div class="col-md-2 pl-0">
+                            <div class="col-auto">
+                                <div class="input-group pt-2">
+                                    <input class="form-control" type="text" name="q" placeholder="Search Posts..." aria-label="Search"/>
                                     <div class="input-group-append border-success">
-                                    <button class="btn btn-outline-success" type="submit">
-                                        <i class="fa fa-search"></i>
-                                    </button>
+                                        <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
+                                    </div>
                                 </div>
-                                </div>
+                                <a href="https://www.algolia.com/">
+                                    <img class="float-right" alt="Algolia" src="/images/search-by-algolia-light.svg" width="100" height="30">
+                                </a>
                             </div>
                         </form>
                     </div>
                 </div>
-                <!--<a href="/posts/create" class="mt-4 btn btn-success btn-lg btn-block shadow">-->
-                <!--    Write a New Post-->
-                <!--</a>-->
-                <!--<div class="pb-4"></div>-->
+
                 @if (count($trending))
-                
                 <h5 class="mt-4 mb-3 pl-2 border-left border-secondary text-secondary" style="border-width: 3px !important;">Most Read </h5>
                     <div class="p-3 mb-3 bg-white shadow-sm rounded">
                         <ul class="list-unstyled mb-0">
@@ -100,7 +95,7 @@
                     </div>
                 @endif
                 
-                <h5 class="mt-5 mb-3 pl-2 border-left border-secondary text-secondary" style="border-width: 3px !important;">Popular on Elitefeis </h5>
+                <h5 class="mt-4 mb-3 pl-2 border-left border-secondary text-secondary" style="border-width: 3px !important;">Popular on Elitefeis </h5>
                 <div class="p-3 mb-3 bg-white shadow-sm rounded">
                     <ul class="list-unstyled mb-0" id="popular">
                          @foreach($popularity as $popular)
