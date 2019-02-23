@@ -65653,7 +65653,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -65706,6 +65705,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 flash('Reply has been deleted!');
             });
             this.$emit('deleted', this.data.id);
+        },
+        doNothing: function doNothing() {
+            this.editing = false;
         }
     }
 });
@@ -66213,11 +66215,7 @@ var render = function() {
                       {
                         staticClass: "btn btn-outline-secondary btn-sm",
                         attrs: { type: "button", title: "Cancel" },
-                        on: {
-                          click: function($event) {
-                            _vm.editing = false
-                          }
-                        }
+                        on: { click: _vm.doNothing }
                       },
                       [_vm._v("Cancel")]
                     )

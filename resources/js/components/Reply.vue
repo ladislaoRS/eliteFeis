@@ -12,11 +12,10 @@
             <div v-if="editing">
                 <form @submit.prevent="update">
                     <div class="form-group">
-                        <!--<textarea class="form-control mb-2" rows="4" v-model="body" required></textarea>-->
                         <wysiwyg v-model="body"></wysiwyg>
                     </div>
                     <button class="btn btn-outline-primary btn-sm">Update</button>
-                    <button @click="editing = false" type="button" class="btn btn-outline-secondary btn-sm" title="Cancel">Cancel</button>
+                    <button @click="doNothing" type="button" class="btn btn-outline-secondary btn-sm" title="Cancel">Cancel</button>
                 </form>
             </div>
             <div v-else v-html="body" style="font-size: .9rem"></div>
@@ -88,7 +87,12 @@
                    flash('Reply has been deleted!'); 
                 });
                 this.$emit('deleted', this.data.id);
+            },
+            
+            doNothing () {
+                this.editing = false;
             }
+            
         }
     }
 </script>

@@ -60,5 +60,15 @@ class Reply extends Model
             $body
         );
     }
+     /**
+     * Access the body attribute.
+     *
+     * @param  string $body
+     * @return string
+     */
+    public function getBodyAttribute($body)
+    {
+        return \Purify::clean($body);
+    }
     
 }

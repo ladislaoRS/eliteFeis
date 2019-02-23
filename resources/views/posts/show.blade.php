@@ -26,7 +26,7 @@
                         <div v-if="editing">
                             <div class="form-group">
                                 <!--<textarea class="form-control mb-2" rows="8" v-model="body" style="line-height: 1.9rem; font-size: 1.25rem"></textarea>-->
-                                <wysiwyg v-model="body"></wysiwyg>
+                                <wysiwyg v-model="body" class="mb-3"></wysiwyg>
                                 <button @click="update" class="btn btn-outline-primary btn-sm">Update</button>
                                 <button @click="editing = false" class="btn btn-outline-secondary btn-sm" title="Cancel">Cancel</button>
                             </div>
