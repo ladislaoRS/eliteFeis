@@ -23,6 +23,10 @@ Vue.component('post', require('./components/Post.vue'));
 Vue.component('subscribe-button', require('./components/SubscribeButton.vue'));
 Vue.component('user-notifications', require('./components/UserNotifications.vue'));
 Vue.component('avatar-form', require('./components/AvatarForm.vue'));
+Vue.component('wysiwyg', require('./components/Wysiwyg.vue'));
+
+Vue.config.ignoredElements = ['trix-editor'];
+
 
 // const files = require.context('./', true, /\.vue$/i)
 

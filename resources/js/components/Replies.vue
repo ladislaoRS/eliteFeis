@@ -4,7 +4,11 @@
             <reply :data="reply" @deleted="remove(index)"></reply>
         </div>
         <paginator :dataSet="dataSet" @changed="fetch"></paginator>
-        <new-reply @created="add"></new-reply>
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="card-body">
+                <new-reply @created="add"></new-reply>
+            </div>
+        </div>
     </div>
 </template>
 

@@ -25,12 +25,13 @@
                         
                         <div v-if="editing">
                             <div class="form-group">
-                                <textarea class="form-control mb-2" rows="8" v-model="body" style="line-height: 1.9rem; font-size: 1.25rem"></textarea>
+                                <!--<textarea class="form-control mb-2" rows="8" v-model="body" style="line-height: 1.9rem; font-size: 1.25rem"></textarea>-->
+                                <wysiwyg v-model="body"></wysiwyg>
                                 <button @click="update" class="btn btn-outline-primary btn-sm">Update</button>
                                 <button @click="editing = false" class="btn btn-outline-secondary btn-sm" title="Cancel">Cancel</button>
                             </div>
                         </div>
-                        <div v-else v-text="body" style="line-height: 1.9rem; font-size: 1.25rem; white-space: pre-wrap;"></div>
+                        <div v-else v-html="body" style="line-height: 1.9rem; font-size: 1.25rem; white-space: pre-wrap;"></div>
                         @can('update', $post)
                         <div class="actions text-right">
                             <!--Editing reply-->

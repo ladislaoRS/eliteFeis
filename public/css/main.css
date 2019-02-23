@@ -128,3 +128,7 @@ div#posts h4 {
     pointer-events: none;
     color: #aaa;
 }
+
+.editor-content pre {
+  background-color: rgb(239,240,241);
+}

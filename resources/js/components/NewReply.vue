@@ -3,16 +3,9 @@
         <div v-if="signedIn">
             <form @submit.prevent="addReply">
             <div class="form-group">
-                <textarea name="body"
-                          id="body"
-                          class="form-control mb-4 border-0 shadow-sm"
-                          placeholder="Have something to say?"
-                          rows="5"
-                          v-model="body"
-                          required>
-                </textarea>
+                <wysiwyg name="body" v-model="body" placeholder="Have something to say?" :shouldClear="completed"></wysiwyg>
                 <button type="submit"
-                    class="btn btn-outline-primary btn-sm">
+                    class="btn btn-outline-primary btn-sm mt-3">
                     <span class=""><i class="fas fa-reply"></i> Reply</span>
                 </button>
             </div>
@@ -32,7 +25,8 @@
     export default {
         data() {
             return {
-                body: ''
+                body: '',
+                completed: false
             };
         },
         mounted() {
@@ -59,6 +53,7 @@
                  axios.post(location.pathname + '/replies', { body: this.body })
                     .then(({data}) => {
                         this.body = '';
+                        this.completed = true;
                         flash('Your reply has been posted.');
                         this.$emit('created', data);
                     });
