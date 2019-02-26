@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Tag;
 use App\Post;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -41,6 +42,11 @@ class AppServiceProvider extends ServiceProvider
         if($this->app->isLocal())
         {
             $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
+        }
+        
+        // Force SSL in production
+        if ($this->app->environment() == 'production') {
+            URL::forceScheme('https');
         }
     }
 }
