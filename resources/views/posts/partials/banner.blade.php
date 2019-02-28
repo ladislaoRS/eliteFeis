@@ -1,6 +1,7 @@
 <!--================Home Banner Area =================-->
 <section class="home_banner_area">
 	<div class="container">
+		@unless(empty($trending))
 		<div class="row">
 			<div class="col-lg-5"></div>
 			<div class="col-lg-7">
@@ -22,6 +23,7 @@
 				</div>
 			</div>
 		</div>
+		@endunless
 	</div>
 </section>
 <!--================End Home Banner Area =================-->
