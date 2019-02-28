@@ -12,7 +12,7 @@
                     <a href="{{ $post->path() }}"><i class="fa fa-comments-o" aria-hidden="true"></i> {{ $post->replies_count }}</a>
                     <a href="{{ $post->path() }}"><i class="fa fa-eye" aria-hidden="true"></i> {{ $post->visits }}</a>
                 </div>
-                <a href="#"><h4>{{ $post->title }}</h4></a>
+                <a href="{{ $post->path() }}"><h4>{{ $post->title }}</h4></a>
                 <p>{{ $post->subtitle }}</p>
                 <a class="blog_btn" href="{{ $post->path() }}">Read More</a>
             </div>
