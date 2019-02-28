@@ -152,6 +152,6 @@ class PostsController extends Controller
             $posts->where('tag_id', $tag->id);
         }
 
-        return $posts->paginate(5);
+        return $posts->paginate(3);
     }
 }

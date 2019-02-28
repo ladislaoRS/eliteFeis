@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['index', 'about']);;
     }
 
     /**
@@ -24,5 +24,16 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+    
+    /**
+     * undocumented function
+     *
+     * @return void
+     * @author `g:snips_author`
+     */
+    public function about()
+    {
+        return view('about');
     }
 }

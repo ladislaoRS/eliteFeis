@@ -1,5 +1,6 @@
 <?php
 namespace App;
+
 use Illuminate\Support\Facades\Redis;
 class Trending
 {
@@ -22,8 +23,11 @@ class Trending
         Redis::zincrby($this->cacheKey(), 1, json_encode([
             'title' => $post->title,
             'path' => $post->path(),
+            'subtitle' => $post->subtitle,
+            'created' => $post->created_at,
             'creator' => $post->creator->name,
-            'tag_slug' => $post->tag->slug
+            'tag_slug' => $post->tag->slug,
+            'comments' => $post->replies_count,
         ]));
     }
     /**
