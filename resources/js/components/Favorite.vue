@@ -1,7 +1,7 @@
 <template>
-    <button @click.prevent="toggle" type="submit" title="Favorite" class="btn btn-link pt-4 pl-0 pb-0">
-        <span class=""><i :class="classes"></i></span>
-        <span v-text="count"></span>
+    <button @click.prevent="toggle" type="submit" title="Favorite" class="btn btn-link pt-2 pl-0 pb-0 text-decoration-none">
+        <span class="text-secondary"><i :class="classes"></i></span>
+        <span class="text-secondary" v-text="count"></span>
     </button>
 </template>
 

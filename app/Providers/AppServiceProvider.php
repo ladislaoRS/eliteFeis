@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
             });
             $view->with('tags', $tags);
         });
-         \View::composer('posts.index', function ($view) {
+         \View::composer(['posts.index', 'posts.show'], function ($view) {
             //  $popularity = \Cache::rememberForever('popularity', function(){
             //     return Post::with('creator')->take(4)->orderBy('replies_count', 'desc')->get();
             // });

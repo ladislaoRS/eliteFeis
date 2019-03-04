@@ -184,4 +184,26 @@ class Post extends Model
     {
         return \Purify::clean($body);
     }
+    
+    /**
+     * undocumented function
+     *
+     * @return void
+     * @author `g:snips_author`
+     */
+    public function previous()
+    {
+        return static::where('id', '<', $this->id)->orderBy('id','desc')->first();
+    }
+    
+    /**
+     * undocumented function
+     *
+     * @return void
+     * @author `g:snips_author`
+     */
+    public function next()
+    {
+        return static::where('id', '>', $this->id)->first();
+    }
 }

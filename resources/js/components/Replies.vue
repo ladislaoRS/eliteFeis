@@ -1,13 +1,14 @@
 <template>
     <div>
-        <div v-for="(reply, index) in items" :key="reply.id">
-            <reply :data="reply" @deleted="remove(index)"></reply>
-        </div>
-        <paginator :dataSet="dataSet" @changed="fetch"></paginator>
-        <div class="card mb-4 border-0 shadow-sm">
-            <div class="card-body">
-                <new-reply @created="add"></new-reply>
+        <div class="comments-area">
+            <div class="comment-list" v-for="(reply, index) in items" :key="reply.id">
+                <reply :data="reply" @deleted="remove(index)"></reply>
             </div>
+            <paginator :dataSet="dataSet" @changed="fetch"></paginator>
+        </div>
+        <div class="comment-form">
+            <h4>Leave a Reply</h4>
+            <new-reply @created="add"></new-reply>
         </div>
     </div>
 </template>

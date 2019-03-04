@@ -26,13 +26,13 @@
                     <div class="row flex-nowrap justify-content-between align-items-center">
                         <div class="col-4 pt-1">
                             <a class="navbar-brand text-dark" href="{{ url('/') }}">
-                                <span class="h3">{{ config('app.name', 'Laravel') }}</span>
+                                <a class="logo" href="/"><img src="{{ asset('opium/img/logo.png') }}" alt=""></a>
                             </a>
                         </div>
                         
                         <div class="col-4 d-flex justify-content-end align-items-center">
                             @if(Auth::check())
-                            <a href="/posts/create" class="mx-2 text-success"><i class="fas fa-plus fa-sm"></i> New Story</a>
+                            <a href="/posts/create" class="mx-2 text-success">New Story</a>
                             <!--<a class="text-muted mx-2" href="#">-->
                             <!--    <span><i class="fas fa-search"></i></span>-->
                             <!--</a>-->
@@ -46,7 +46,7 @@
                             @endif
                             @else
                             <div class="dropdown mx-2">
-                                <a class="text-muted h5 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a class="text-muted dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}<span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right text-uppercase" aria-labelledby="navbarDropdown">
@@ -73,12 +73,7 @@
             <main class="" style="min-height: 500px">
                 @yield('content')
             </main>
-            <footer class="blog-footer">
-                <p>© Creaintel {{ date('Y') }}. All rights reserved.</p>
-                <p>
-                    <a href="#" class="btn btn-primary">Back to top</a>
-                </p>
-            </footer>
+            @include('layouts.partials.footer')
             <flash message="{{ session('flash') }}"></flash>
         </div>
         <script>

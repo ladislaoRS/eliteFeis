@@ -1,42 +1,39 @@
 <template>
-    <div :id="'reply-'+id" class="card my-4 border-0 shadow-sm">
-        <div class="card-body">
-            <div class="media text-muted">
-                <img class="mr-2 rounded-circle" :src="data.owner.avatar_path" alt="Profile" width="35" height="35">
-                <div class="media-body">
-                    <h6 class="mt-0"><a :href="'/profiles/' + data.owner.name" v-text="'@' + data.owner.name"><span>@</span></a>
-                    <span class="d-block text-gray-dark pt-1" v-text="ago"></span>
-                    </h6>
+    <div :id="'reply-'+id">
+        <div class="single-comment justify-content-between d-flex">
+            <div class="user justify-content-between d-flex">
+                <div class="thumb">
+                    <img :src="data.owner.avatar_path" alt="Profile" width="60" height="60">
+                </div>
+                <div class="desc">
+                    <h5><a :href="'/profiles/' + data.owner.name" v-text="'@' + data.owner.name"></a></h5>
+                    <p class="date" v-text="ago"></p>
+                    <div v-if="editing">
+                        <form @submit.prevent="update">
+                            <div class="form-group">
+                                <wysiwyg v-model="body"></wysiwyg>
+                            </div>
+                            <button class="btn btn-outline-primary btn-sm">Update</button>
+                            <button @click="doNothing" type="button" class="btn btn-outline-secondary btn-sm" title="Cancel">Cancel</button>
+                        </form>
+                    </div>
+                    <p v-else v-html="body"></p>
                 </div>
             </div>
-            <div v-if="editing">
-                <form @submit.prevent="update">
-                    <div class="form-group">
-                        <wysiwyg v-model="body"></wysiwyg>
-                    </div>
-                    <button class="btn btn-outline-primary btn-sm">Update</button>
-                    <button @click="doNothing" type="button" class="btn btn-outline-secondary btn-sm" title="Cancel">Cancel</button>
-                </form>
+            
+            <div class="reply-btn" v-if="canUpdate">
+                  <a href="javascript:void(0)" class="btn-reply text-uppercase" title="Edit" @click="editing = true" v-if="! editing">Edit</a> 
             </div>
-            <div v-else v-html="body" style="font-size: .9rem"></div>
-         
-            <template v-if="signedIn">
-                <favorite :reply="data"></favorite>
-            </template>
-        
-
-            <template v-if="canUpdate">
-                <!--Editing reply-->
-                <button class="btn btn-link pt-4 pl-0 pb-0" title="Edit" @click="editing = true" v-if="! editing">
-                    <span class=""><i class="far fa-edit"></i> Edit</span>
-                </button>
-                
-                <!--Ajaxifying delete button-->
-                <button class="btn btn-link pt-4 pl-0 pb-0" title="Delete" @click="destroy">
-                    <span class="text-danger"><i class="far fa-trash-alt"></i> Delete</span>
-                </button>
-            </template>
         </div>
+        <template v-if="signedIn">
+            <favorite :reply="data"></favorite>
+        </template>
+        <template v-if="canUpdate">
+            <!--Ajaxifying delete button-->
+            <button class="btn btn-link pt-2 pl-0 pb-0" title="Delete" @click="destroy">
+                <span class="text-danger"><i class="far fa-trash-alt"></i></span>
+            </button>
+        </template>
     </div>
 </template>
 <script>

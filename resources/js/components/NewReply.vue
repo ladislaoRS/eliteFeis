@@ -5,8 +5,8 @@
             <div class="form-group">
                 <wysiwyg name="body" v-model="body" placeholder="Have something to say?" :shouldClear="completed"></wysiwyg>
                 <button type="submit"
-                    class="btn btn-outline-primary btn-sm mt-3">
-                    <span class=""><i class="fas fa-reply"></i> Reply</span>
+                    class="primary-btn submit_btn mt-3">
+                    Post Comment
                 </button>
             </div>
             </form>
