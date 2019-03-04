@@ -19,7 +19,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><a class="text-dark" href="{{ $post->path() }}">{{ $post->title }}</a></h5>
                             <h6 class="card-subtitle mb-3 text-muted">{{ $post->creator->name }} | {{ $post->created_at->toFormattedDateString() }}</h6>
-                            <p class="card-text">{{ substr($post->body, 0, 200) }}...</p>
+                            <p class="card-text">{!! substr($post->body, 0, 200) !!}...</p>
                             <span class="card-link">
                                 <i class="far fa-comment fa-sm text-muted"></i>
                                 <small class="text-muted">{{ $post->replies_count }}</small>
