@@ -20,9 +20,6 @@
    		</div>
    	</div>
    	<p style="line-height: 1.9rem; font-size: 1.1rem;">{!! $post->body !!}</p>
- <!--  	<blockquote class="blockquote">-->
-	<!--	<p class="mb-0">MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training.</p>-->
-	<!--</blockquote>-->
    	
   	<div class="news_d_footer">
   		<a href="#"><i class="lnr lnr lnr-heart"></i>4 people like this</a>

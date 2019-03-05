@@ -8,7 +8,7 @@
 <!--Include Nav Bar-->
 @include('layouts.nav')
  <!--================Blog Area =================-->
-        <section class="blog_area pt-4 single-post-area">
+        <section class="blog_area single-post-area">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
@@ -20,5 +20,6 @@
                 </div>
             </div>
         </section>
+        @include('layouts.partials.footer')
         <!--================Blog Area =================-->
     @endsection
