@@ -33,6 +33,6 @@
 
             <flash message="{{ session('flash') }}"></flash>
         </div>
-        @include('layouts.partials.footer-scripts')
+        <!--@include('layouts.partials.footer-scripts')-->
     </body>
 </html>

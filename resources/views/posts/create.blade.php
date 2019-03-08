@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section ('head')
+     @include('layouts.partials.head')
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 @endsection
 

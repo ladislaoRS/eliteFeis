@@ -65522,6 +65522,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -68135,35 +68138,41 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      { staticClass: "comments-area" },
-      [
-        _vm._l(_vm.items, function(reply, index) {
-          return _c(
-            "div",
-            { key: reply.id, staticClass: "comment-list" },
-            [
-              _c("reply", {
-                attrs: { data: reply },
-                on: {
-                  deleted: function($event) {
-                    _vm.remove(index)
-                  }
-                }
-              })
-            ],
-            1
-          )
-        }),
-        _vm._v(" "),
-        _c("paginator", {
-          attrs: { dataSet: _vm.dataSet },
-          on: { changed: _vm.fetch }
-        })
-      ],
-      2
-    ),
+    _vm.items.length
+      ? _c(
+          "div",
+          { staticClass: "comments-area" },
+          [
+            _vm._l(_vm.items, function(reply, index) {
+              return _c(
+                "div",
+                { key: reply.id, staticClass: "comment-list" },
+                [
+                  _c("reply", {
+                    attrs: { data: reply },
+                    on: {
+                      deleted: function($event) {
+                        _vm.remove(index)
+                      }
+                    }
+                  })
+                ],
+                1
+              )
+            }),
+            _vm._v(" "),
+            _c("paginator", {
+              attrs: { dataSet: _vm.dataSet },
+              on: { changed: _vm.fetch }
+            })
+          ],
+          2
+        )
+      : _c("div", { staticClass: "comments-area" }, [
+          _c("h4", { staticClass: "text-center text-muted" }, [
+            _vm._v("This post has no replies yet!")
+          ])
+        ]),
     _vm._v(" "),
     _c(
       "div",
