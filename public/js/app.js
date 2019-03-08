@@ -66065,7 +66065,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     computed: {
         classes: function classes() {
-            return [this.active ? 'fas fa-heart' : 'far fa-heart'];
+            return [this.active ? 'fa fa-heart' : 'fa fa-heart-o'];
         },
         endpoint: function endpoint() {
             return '/replies/' + this.reply.id + '/favorites';
@@ -66275,7 +66275,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "text-danger" }, [
-      _c("i", { staticClass: "far fa-trash-alt" })
+      _c("i", { staticClass: "fa fa-trash-alt" })
     ])
   }
 ]

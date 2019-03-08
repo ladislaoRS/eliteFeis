@@ -31,7 +31,7 @@
         <template v-if="canUpdate">
             <!--Ajaxifying delete button-->
             <button class="btn btn-link pt-2 pl-0 pb-0" title="Delete" @click="destroy">
-                <span class="text-danger"><i class="far fa-trash-alt"></i></span>
+                <span class="text-danger"><i class="fa fa-trash-alt"></i></span>
             </button>
         </template>
     </div>
