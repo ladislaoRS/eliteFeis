@@ -40,9 +40,9 @@
                                 </div>
     
                                 <div class="form-group">
-                                    <!--<label for="body">Body:</label>-->
+                                    <label for="body">Body:</label>
                                     <!--<textarea name="body" id="body" class="form-control" rows="8" required>{{ old('body') }}</textarea>-->
-                                    <wysiwyg class="mt-4 nav-scroller" name="body"></wysiwyg>
+                                    <wysiwyg class="mt-4 wysiwyg-scroll" name="body"></wysiwyg>
                                 </div>
                                 
                                 <div class="form-group">

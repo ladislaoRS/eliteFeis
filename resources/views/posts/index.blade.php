@@ -1,13 +1,13 @@
-<!--Extend Opium Layout-->
+<!--Opium Layout-->
 @extends('layouts.opium')
 
 <!--Main content-->
 @section('content')
     
-<!--Include Nav Bar-->
+<!--Nav Bar-->
 @include('layouts.nav')
 
-<!-- Include Home Banner Area -->
+<!-- Home Banner Area -->
 @include('posts.partials.banner')
 
 <!--================Blog Area =================-->

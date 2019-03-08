@@ -59,7 +59,7 @@
             <li>
                 <a href="/posts/{{ $tag->slug }}" class="d-flex justify-content-between text-capitalize">
                     <p>{{ $tag->name }}</p>
-                    <p>{{ $tag->posts->count() }}</p>
+                    <p>{{ $tag->posts_count }}</p>
                 </a>
             </li>
             @endforeach

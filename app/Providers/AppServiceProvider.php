@@ -17,17 +17,18 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         \Schema::defaultStringLength(191);
-        \View::composer('*', function ($view) {
-            $tags = \Cache::rememberForever('tags', function(){
-                return Tag::all();
-            });
+        // \View::composer('*', function ($view) {
+        //     $tags = \Cache::rememberForever('tags', function(){
+        //         return Tag::all();
+        //     });
+        //     $view->with('tags', $tags);
+        // });
+        \View::composer(['posts.index', 'posts.show'], function ($view) {
+            $tags = Tag::all();
             $view->with('tags', $tags);
         });
+        
          \View::composer(['posts.index', 'posts.show'], function ($view) {
-            //  $popularity = \Cache::rememberForever('popularity', function(){
-            //     return Post::with('creator')->take(4)->orderBy('replies_count', 'desc')->get();
-            // });
-            // $view->with('popularity', $popularity);
             $view->with('popularity', Post::take(4)->orderBy('replies_count', 'desc')->get());
         });
     }
