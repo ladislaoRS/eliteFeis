@@ -29,7 +29,7 @@ class PostsController extends Controller
 
         return view('posts.index', [
             'posts' => $posts,
-            'trending' => $trending->get()
+            'trending' => $trending->get($tag)
         ]);
     }
 

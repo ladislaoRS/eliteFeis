@@ -1,7 +1,9 @@
 <?php
 namespace App;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Redis;
+
 class Trending
 {
     /**
@@ -9,9 +11,17 @@ class Trending
      *
      * @return array
      */
-    public function get()
+    public function get($tag)
     {
-        return array_map('json_decode', Redis::zrevrange($this->cacheKey(), 0, 2));
+        $posts = array_map('json_decode', Redis::zrevrange($this->cacheKey(), 0, 3));
+
+       if ($tag->exists) {
+            $posts = array_filter($posts, function ($post) use($tag){
+                return $post->tag_slug === $tag->slug;
+            });
+        }
+        
+        return $posts;
     }
     /**
      * Push a new post to the trending list.
@@ -25,7 +35,6 @@ class Trending
             'path' => $post->path(),
             'subtitle' => $post->subtitle,
             'created' => $post->created_at,
-            'creator' => $post->creator->name,
             'tag_slug' => $post->tag->slug,
             'comments' => $post->replies_count,
         ]));

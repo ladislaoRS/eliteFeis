@@ -1,7 +1,7 @@
 <!--================Home Banner Area =================-->
 <section class="home_banner_area">
 	<div class="container">
-		@unless(empty($trending))
+		@unless(empty($trending) || Request::get('popular'))
 		<div class="row">
 			<div class="col-lg-5"></div>
 			<div class="col-lg-7">
@@ -10,7 +10,7 @@
 					<div class="item">
 						<div class="blog_text">
 							<div class="cat">
-								<a class="cat_btn text-capitalize">{{ $trend->tag_slug }}</a>
+								<a href="/posts/{{ $trend->tag_slug }}" class="cat_btn text-capitalize">{{ $trend->tag_slug }}</a>
 								<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> {{ \Carbon\Carbon::parse($trend->created->date)->diffForHumans() }}</a>
 								<a href="{{ url($trend->path) }}"><i class="fa fa-comments-o" aria-hidden="true"></i> {{ $trend->comments }}</a>
 							</div>

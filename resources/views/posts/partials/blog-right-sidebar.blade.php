@@ -35,7 +35,7 @@
         <div class="media post_item">
             <img src="{{ asset('opium/img/blog/popular-post/post' . $loop->iteration) }}.jpg" alt="post">
             <div class="media-body">
-                <a href="blog-details.html"><h3>{{ $popular->title }}</h3></a>
+                <a href="{{ $popular->path() }}"><h3>{{ $popular->title }}</h3></a>
                 <p>{{ $popular->created_at->diffForHumans() }}</p>
             </div>
         </div>

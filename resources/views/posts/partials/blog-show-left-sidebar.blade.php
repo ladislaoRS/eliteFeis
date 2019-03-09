@@ -67,7 +67,7 @@
             </div>
             <div class="detials">
                 <p>Prev Post</p>
-                <a href="#"><h4>{{ $post->previous()->title }}</h4></a>
+                <a href="{{ $post->previous()->path() }}"><h4>{{ $post->previous()->title }}</h4></a>
             </div>
             @endif
         </div>
@@ -75,7 +75,7 @@
         @if (!empty($post->next()))
         <div class="detials">
             <p>Next Post</p>
-            <a href="#"><h4>{{ $post->next()->title }}</h4></a>
+            <a href="{{ $post->next()->path() }}"><h4>{{ $post->next()->title }}</h4></a>
         </div>
         <div class="arrow">
             <a href="#"><span class="lnr text-white lnr-arrow-right"></span></a>
