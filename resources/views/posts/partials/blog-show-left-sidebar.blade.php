@@ -29,7 +29,7 @@
                 <button @click="editing = false" class="btn btn-outline-secondary btn-sm" title="Cancel">Cancel</button>
             </div>
         </div>
-        <div v-else v-html="body" style="line-height: 1.9rem; font-size: 1.25rem; white-space: pre-wrap;"></div>
+        <div v-else v-html="body" style="line-height: 2rem; font-size: 1.2rem; white-space: pre-wrap;"></div>
         @can('update', $post)
             <div class="actions text-right">
                 <!--Editing reply-->
