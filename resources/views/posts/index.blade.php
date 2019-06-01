@@ -3,7 +3,7 @@
 
 <!--Main content-->
 @section('content')
-    
+
 <!--Nav Bar-->
 @include('layouts.nav')
 
@@ -23,5 +23,4 @@
         </div>
     </div>
 </section>
-<!--================Blog Area =================-->
 @endsection

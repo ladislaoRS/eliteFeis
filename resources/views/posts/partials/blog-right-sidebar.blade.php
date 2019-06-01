@@ -13,7 +13,7 @@
         </form>
         <div class="br"></div>
     </aside>
-    
+
     @if (Auth::user())
     <aside class="single_sidebar_widget author_widget">
         <img class="author_img img-fluid rounded border" src="{{ asset('opium/img/blog/author.png') }}" alt="">
@@ -35,7 +35,9 @@
         <div class="media post_item">
             <img src="{{ asset('opium/img/blog/popular-post/post' . $loop->iteration) }}.jpg" alt="post">
             <div class="media-body">
-                <a href="{{ $popular->path() }}"><h3>{{ $popular->title }}</h3></a>
+                <a href="{{ $popular->path() }}">
+                    <h3>{{ $popular->title }}</h3>
+                </a>
                 <p>{{ $popular->created_at->diffForHumans() }}</p>
             </div>
         </div>
@@ -49,8 +51,8 @@
                 <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
             </div>
             <a href="#" class="bbtns"><i class="lnr lnr-arrow-right"></i></a>
-        </div>	
-        <div class="br"></div>							
+        </div>
+        <div class="br"></div>
     </aside>
     <aside class="single_sidebar_widget post_category_widget">
         <h4 class="widget_title">Post Catgories</h4>

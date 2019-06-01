@@ -16,13 +16,13 @@ class SearchController extends Controller
     public function show(Trending $trending)
     {
         $search = request('q');
-        
+
         $posts = Post::search($search)->paginate(25);
-        
+
         if(request()->expectsJson()){
-            return $posts;   
+            return $posts;
         }
-        
+
         return view('posts.index', [
             'posts' => $posts,
             'trending' => $trending->get()

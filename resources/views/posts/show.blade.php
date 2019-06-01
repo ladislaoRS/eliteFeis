@@ -20,6 +20,6 @@
                 </div>
             </div>
         </section>
+
         @include('layouts.partials.footer')
-        <!--================Blog Area =================-->
     @endsection

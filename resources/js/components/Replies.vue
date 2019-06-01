@@ -7,7 +7,7 @@
             <paginator :dataSet="dataSet" @changed="fetch"></paginator>
         </div>
         <div class="comments-area" v-else>
-            <h4 class="text-center text-muted">This post has no replies yet!</h4>
+            <p class="text-center text-muted">This post has no replies yet!</p>
         </div>
         <div class="comment-form">
             <h4>Leave a Reply</h4>
@@ -20,13 +20,13 @@
     import Reply from './Reply.vue';
     import NewReply from './NewReply.vue';
     import collection from '../mixins/collection';
-    
+
     export default {
         components: { Reply, NewReply },
         mixins: [collection],
 
         data() {
-            return { dataSet: false };
+            return { dataSet: false, repliesCount: 0 };
         },
         created() {
             this.fetch();

@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class PostSubscriptionsController extends Controller
 {
-   
      /**
      * Store a new post subscription.
      *
